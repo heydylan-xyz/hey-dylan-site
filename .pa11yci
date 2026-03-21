@@ -6,6 +6,6 @@
     "timeout": 60000
   },
   "urls": [
-    "http://localhost:8080/common/sitemap.xml"
+    "http://localhost:8080/sitemap.xml"
   ]
 }
