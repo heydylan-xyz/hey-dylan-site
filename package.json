@@ -24,10 +24,10 @@
     "test:a11y": "npm run pa11y:build && (npm run pa11y:serve &) && sleep 5 && npm run pa11y:test"
   },
   "keywords": [],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/madrilene/eleventy-excellent.git"
-  },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/heydylan-xyz/hey-dylan-site.git"
+    },
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-fetch": "^5.1.1",
