@@ -1,0 +1,54 @@
+.gallery dialog {
+  border-radius: var(--border-radius-medium);
+  inset: revert;
+}
+
+/* the image that serves as button */
+.gallery dialog + button {
+  all: unset;
+  cursor: pointer;
+}
+
+.gallery dialog + button:focus-visible {
+  outline: 3px solid var(--focus-color, currentColor);
+  outline-offset: var(--focus-offset, 0.3ch);
+}
+
+/* the close button */
+.gallery dialog > button {
+  margin-inline: auto;
+  display: flex;
+}
+
+.gallery dialog + button img {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* Don't indicate interactivity without JS */
+is-land:not(:defined) .gallery dialog + button {
+  cursor: default;
+}
+
+.gallery dialog::backdrop {
+  /* This kills the gradient pattern */
+  background-image: none !important;
+  
+  /* This creates a solid, dark, non-ghostly background */
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  
+  /* This ensures the transparency settings don't wash it out */
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.gallery dialog img {
+  max-block-size: 70vh;
+  max-inline-size: 90vw;
+  object-fit: contain;
+  border: none;
+}
+
+.gallery dialog figcaption {
+  color: var(--color-light);
+}

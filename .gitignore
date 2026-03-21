@@ -1,0 +1,17 @@
+# Node modules
+node_modules
+
+# generated files
+_site
+dist
+src/_includes/css
+src/_includes/scripts
+
+# cache
+.cache
+
+# secret data
+.env
+
+# Personal templates
+post-template.md

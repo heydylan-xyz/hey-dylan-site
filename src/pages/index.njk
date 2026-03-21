@@ -1,0 +1,69 @@
+---
+layout: page
+permalink: /index.html
+title: "Dylan's Portfolio"
+description: 'Dylan is a product-minded UX designer and content strategist in Seattle.'
+blog:
+  title: 'More projects'
+  intro: ""
+---
+<p>
+Dylan is a product-minded UX designer and content strategist in Seattle. He has written, designed, and strategized online experiences for over 10 years. Learn more <a href="/about">about Dylan</a> and <a href="mailto:{{ meta.author.email }}?subject=Portfolio%20Inquiry">send him an email</a>.
+</p>
+
+<div data-layout="50-50" class="grid">
+
+<custom-card img-square clickable>
+  <figure slot="image">
+    <img src="/assets/images/gallery/duolingo-switch-square.png" alt="Description" />
+  </figure>
+  
+  <h2 slot="headline">Duolingo for Nintendo Switch</h2>
+  
+  <div slot="meta" class="meta cluster">
+  </div>
+  
+  <p slot="content">A concept exploring bringing language learning to the gaming handheld with prototype video.</p>
+  
+  <footer slot="footer">
+    <a href="/projects/duolingo-for-nintendo-switch/">Read case study</a>
+  </footer>
+</custom-card>
+
+<custom-card img-square clickable>
+  <figure slot="image">
+    <img src="/assets/images/gallery/ancestry-account-settings-square.png" alt="Description" />
+  </figure>
+  
+  <h2 slot="headline">Account Settings Page</h2>
+  
+  <div slot="meta" class="meta cluster">
+  </div>
+  
+  <p slot="content">Redesigning a fragmented settings experience Ancestry's Know Your Pet DNA users.</p>
+  
+  <footer slot="footer">
+    <a href="/projects/account-settings-page/">Read case study</a>
+  </footer>
+</custom-card>
+
+</div>
+
+  <section class="full | region">
+    <div class="prose wrapper flow">
+      <h2>{{ blog.title }}</h2>
+      {% if blog.intro %}
+        <p>{{ blog.intro }}</p>
+      {% endif %}
+      <div class="feature |  region region-space-l">
+        <custom-masonry layout="50-50">
+          {% set itemList = collections.allPosts %}
+					{% asyncEach item in itemList.slice(0, 4) %}
+            {% set headingLevel = "h3" %}
+						{% include "partials/card-blog.njk" %}
+					{% endeach %}
+        </custom-masonry>
+      </div>
+    </div>
+  </section>
+</div>

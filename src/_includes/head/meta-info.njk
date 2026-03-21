@@ -1,0 +1,63 @@
+{% set metaDescription %}
+  {%- if discover.description -%}
+    {{- discover.description -}}
+  {%- elif description -%}
+    {{- description -}}
+  {%- else -%}
+    {{- meta.siteDescription -}}
+  {%- endif -%}
+{% endset %}
+
+<meta name="description" content="{{ metaDescription }}" />
+<meta name="theme-color" content="{{ meta.themeDark }}" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="{{ meta.themeLight }}" media="(prefers-color-scheme: light)" />
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+<meta name="generator" content="{{ eleventy.generator }}" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="color-scheme" content="light dark" />
+<link rel="canonical" href="{{ meta.url }}{{ page.url }}" />
+<link rel="author" href="humans.txt" />
+
+{% if personal.platforms.mastodon %}
+  <link rel="me" href="{{ personal.platforms.mastodon }}" />
+{% endif %}
+
+{% if meta.author.fediverse %}
+  <meta name="fediverse:creator" content="{{ meta.author.fediverse }}" />
+{% endif %}
+
+<meta property="og:url" content="{{ meta.url }}{{ page.url }}" />
+<meta property="og:type" content="website" />
+<meta
+  property="og:title"
+  content="{%- if discover.title -%}{{- discover.title -}}{%- elif title -%}{{- title -}}{%- else -%}{{- meta.siteName -}}{%- endif -%}"
+/>
+
+{# Logic: Use og_image_alt, then fall back to the Page Title, then the Global Default #}
+{% set socialImage = og_image or meta.opengraph_default %}
+{% set socialImageAlt = og_image_alt or title or meta.opengraph_default_alt %}
+
+<meta property="og:image" content="{{ meta.url }}{{ socialImage }}" />
+<meta property="og:image:alt" content="{{ socialImageAlt }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta property="og:description" content="{{ metaDescription }}" />
+<meta property="og:site_name" content="{{ meta.siteName }}" />
+<meta property="og:locale" content="{{ meta.locale }}" />
+<meta property="article:author" content="{{ meta.author.name }}" />
+
+{% for feedLink in meta.projects.feedLinks %}
+  <link
+    rel="alternate"
+    type="{{ feedLink.type }}"
+    title="{{ feedLink.title }}: {{ meta.siteName }}"
+    href="{{ feedLink.url }}"
+  />
+{% endfor %}
+
+<link rel="icon" href="{{ '/favicon.ico' | url }}" sizes="any" />
+<link rel="icon" href="{{ '/favicon.svg' | url }}" type="image/svg+xml" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}" />
+<link rel="manifest" href="{{ '/site.webmanifest' | url }}" />
