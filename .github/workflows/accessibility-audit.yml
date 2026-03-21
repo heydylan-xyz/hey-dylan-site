@@ -1,0 +1,19 @@
+name: Accessibility Audit
+on: [push]
+
+jobs:
+  pa11y-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Site
+        run: npm run build
+
+      - name: Run Accessibility Audit
+        run: |
+          npx pa11y-ci --sitemap http://localhost:8080/sitemap.xml --threshold 0
+        # This will fail the build if any WCAG violations are found!
