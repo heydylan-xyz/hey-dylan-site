@@ -22,8 +22,6 @@ jobs:
 
       - name: Run Accessibility Audit
         run: |
-          # Serve the 'dist' folder instead of '_site'
           npx serve dist -l 8080 & 
           sleep 5
-          # Look for the sitemap in /common/sitemap.xml
-          npx pa11y-ci --sitemap http://localhost:8080/common/sitemap.xml --threshold 0 --chrome-launch-config '{"args": ["--no-sandbox"]}'
+          npx pa11y-ci --sitemap http://localhost:8080/common/sitemap.xml --threshold 0

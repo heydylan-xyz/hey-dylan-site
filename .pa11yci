@@ -1,0 +1,11 @@
+{
+  "defaults": {
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox"]
+    },
+    "timeout": 60000
+  },
+  "urls": [
+    "http://localhost:8080/common/sitemap.xml"
+  ]
+}
