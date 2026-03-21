@@ -4,8 +4,15 @@ on: [push]
 jobs:
   pa11y-check:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
 
       - name: Install Dependencies
         run: npm install
@@ -16,4 +23,3 @@ jobs:
       - name: Run Accessibility Audit
         run: |
           npx pa11y-ci --sitemap http://localhost:8080/sitemap.xml --threshold 0
-        # This will fail the build if any WCAG violations are found!
