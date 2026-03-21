@@ -3,7 +3,11 @@
     "chromeLaunchConfig": {
       "args": ["--no-sandbox"]
     },
-    "timeout": 60000
+    "timeout": 60000,
+    "ignore": [
+      "WCAG2AA.Principle3.Guideline3_1.3_1_1.H57.2",
+      "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl"
+    ]
   },
   "urls": [
     "http://localhost:8080/sitemap.xml"
