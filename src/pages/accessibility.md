@@ -14,7 +14,9 @@ _Eleventy Excellent_ aims to be conformant with [ WCAG 2.1 Level AA.](https://ww
 
 ## Testing
 
-[pa11y-ci](https://github.com/pa11y/pa11y-ci) is used to run automated accessibility tests.
+[![Accessibility Audit Status](https://github.com/heydylan-xyz/hey-dylan-site/actions/workflows/accessibility-audit.yml/badge.svg)](https://github.com/heydylan-xyz/hey-dylan-site/actions/workflows/accessibility-audit.yml)
+
+[pa11y-ci](https://github.com/pa11y/pa11y-ci) is used to run automated accessibility tests on every update to this site. This ensures that all design elements and site structures consistently meet **WCAG 2.1 AA** standards.
 
 ## Feedback
 
