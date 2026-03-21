@@ -152,7 +152,7 @@ a:not([class]):hover {
 /* Dynamic Hex Code - Light About Page */
 .hex-light {
   display: inline;
-  color: #769F51; /* Match your light mode brand color */
+  color: #729B4D; /* Match your light mode brand color */
   font-family: var(--font-mono, monospace);
   font-weight: var(--font-bold);
 }

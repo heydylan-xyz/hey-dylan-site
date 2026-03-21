@@ -7,7 +7,7 @@ layout: page
 
 Dylan is a product-minded UX designer and content strategist in Seattle. He has written, designed, and strategized online experiences for over 10 years at companies like Pinterest and Ancestry. He thrives where clever solutions are celebrated and efficient systems are a must on the way to delivering awesome products and accessible user experiences.
 
-The green color on this site <span class="hex-light">#769F51</span> <span class="hex-dark">#B9E192</span> is sampled from photos of his many houseplants, and the site itself was built using a modded ThinkPad T480 running Linux Mint. Dylan is learning ASL and Spanish while his Chihuahua communicates using talking buttons. The Chihuahua is also bilingual.
+The green color on this site <span class="hex-light">#729B4D</span> <span class="hex-dark">#B9E192</span> is sampled from photos of his many houseplants, and the site itself was built using a modded ThinkPad T480 running Linux Mint. Dylan is learning ASL and Spanish while his Chihuahua communicates using talking buttons. The Chihuahua is also bilingual.
 
 Dylan is obsessed with the prop user interfaces in movies and TV. He can be found drinking iced coffee in the rain. He's the kid who never stopped asking all the adults "why?" but now he has Wikipedia. One time Ted Allen said to him, "Dylan, you complete me." Dylan would not lie to you about the guy from Queer Eye and Chopped Junior.
 </br>
