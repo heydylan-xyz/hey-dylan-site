@@ -5,7 +5,8 @@ title: "Dylan's Portfolio"
 description: 'Dylan is a product-minded UX designer and content strategist in Seattle.'
 blog:
   title: 'More projects'
-  intro: ""
+  intro: |
+    You're experiencing one! This site was built with <a href="https://www.11ty.dev">11ty</a> and the <a href="https://eleventy-excellent.netlify.app">Eleventy Excellent</a> starter with <a href="https://cube.fyi">CUBE CSS</a>, Javascript, WebC, and flat Markdown files. It is hosted on <a href="https://www.netlify.com">Netlify</a> with automatic Github deployments and <a href="/accessibility/#testingpa11y">pa11y Accessibility Audits</a>.
 ---
 <p>
 Dylan is a product-minded UX designer and content strategist in Seattle. He has written, designed, and strategized online experiences for over 10 years. Learn more <a href="/about">about Dylan</a> and <a href="mailto:{{ meta.author.email }}?subject=Portfolio%20Inquiry">send him an email</a>.
@@ -15,7 +16,24 @@ Dylan is a product-minded UX designer and content strategist in Seattle. He has 
 
 <custom-card img-square clickable>
   <figure slot="image">
-    <img src="/assets/images/gallery/duolingo-switch-square.png" alt="Description" />
+    <img src="/assets/images/gallery/ancestry-roles-permissions-square.png" alt="Desktop and mobile mockups of the Roles & Permissions dashboard, highlighting the 'Winston' profile management view and invitation status tabs" />
+  </figure>
+  
+  <h2 slot="headline">Roles & Permissions Feature</h2>
+  
+  <div slot="meta" class="meta cluster">
+  </div>
+  
+  <p slot="content">Designing a secure way for users to share Know Your Pet DNA test results with family members or veterinary professionals.</p>
+  
+  <footer slot="footer">
+    <a href="/projects/roles-and-permissions-feature/">Read case study</a>
+  </footer>
+</custom-card>
+
+<custom-card img-square clickable>
+  <figure slot="image">
+    <img src="/assets/images/gallery/duolingo-switch-square.png" alt="A high-fidelity mockup of two Nintendo Switch consoles running a Duolingo learning exercise interface in landscape orientation." />
   </figure>
   
   <h2 slot="headline">Duolingo for Nintendo Switch</h2>
@@ -32,10 +50,27 @@ Dylan is a product-minded UX designer and content strategist in Seattle. He has 
 
 <custom-card img-square clickable>
   <figure slot="image">
-    <img src="/assets/images/gallery/ancestry-account-settings-square.png" alt="Description" />
+    <img src="/assets/images/gallery/futurama-store-square.png" alt="Desktop UI concept with retro-futuristic depiction of the Mom Corp shopping experience from the show Futurama." />
   </figure>
   
-  <h2 slot="headline">Account Settings Page</h2>
+  <h2 slot="headline">Futurama Store</h2>
+  
+  <div slot="meta" class="meta cluster">
+  </div>
+  
+  <p slot="content">Concept e-commerce UI for Mom’s Friendly Robot Company from Futurama.</p>
+  
+  <footer slot="footer">
+    <a href="/projects/futurama-store/">Check it out</a>
+  </footer>
+</custom-card>
+
+<custom-card img-square clickable>
+  <figure slot="image">
+    <img src="/assets/images/gallery/ancestry-account-settings-square.png" alt="Desktop and mobile redesign of pet DNA Account Settings interface." />
+  </figure>
+  
+  <h2 slot="headline">Account Settings Redesign</h2>
   
   <div slot="meta" class="meta cluster">
   </div>
@@ -53,7 +88,7 @@ Dylan is a product-minded UX designer and content strategist in Seattle. He has 
     <div class="prose wrapper flow">
       <h2>{{ blog.title }}</h2>
       {% if blog.intro %}
-        <p>{{ blog.intro }}</p>
+        <p>{{ blog.intro | safe }}</p>
       {% endif %}
       <div class="feature |  region region-space-l">
         <custom-masonry layout="50-50">

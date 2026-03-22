@@ -1,5 +1,5 @@
 ---
-title: 'Account Settings Page'
+title: 'Account Settings Redesign'
 description: "Redesigning a fragmented settings experience for Ancestry's Know Your Pet DNA users."
 date: 2025-11-01
 tags: ['UX design', 'Ancestry','case study']
