@@ -11,6 +11,7 @@
   "scripts": {
     "clean": "rimraf dist src/_includes/css src/_includes/scripts",
     "clean:og": "rimraf src/assets/og-images",
+    "clean:fast": "rimraf src/_includes/css src/_includes/scripts dist/assets/scripts dist/assets/css",
     "favicons": "node ./src/_config/setup/generate-favicons.js",
     "colors": "node ./src/_config/setup/create-colors.js",
     "screenshots": "node ./src/_config/setup/generate-screenshots.js",

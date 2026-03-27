@@ -37,3 +37,8 @@
 .post .meta {
   font-size: var(--size-step-min-1);
 }
+
+/* Prevent sticky header from obscuring anchor-linked headings */
+.post article :is(h2, h3, h4, h5, h6)[id] {
+  scroll-margin-top: var(--space-l, 2rem);
+}

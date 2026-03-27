@@ -1,5 +1,5 @@
 ---
-title: 'Shareable Graphic'
+title: 'Dynamic Shareable Graphic'
 description: "Custom dog breed results graphic with sharing interface for Ancestry's Know Your Pet DNA."
 date: 2025-10-01
 tags: ['UX design', 'Ancestry']

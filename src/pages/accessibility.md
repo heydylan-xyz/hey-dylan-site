@@ -10,11 +10,13 @@ I am committed to accessible design and continually try to improve the user expe
 
 ## Conformance Status
 
-_Eleventy Excellent_ aims to be conformant with [ WCAG 2.1 Level AA.](https://www.w3.org/WAI/standards-guidelines/wcag/)
+_Eleventy Excellent_ aims to conform with [ WCAG 2.1 Level AA.](https://www.w3.org/WAI/standards-guidelines/wcag/)
 
 ## Testing
 
-[![Accessibility Audit Status](https://github.com/heydylan-xyz/hey-dylan-site/actions/workflows/accessibility-audit.yml/badge.svg)](https://github.com/heydylan-xyz/hey-dylan-site/actions/workflows/accessibility-audit.yml)
+<a href="https://github.com/heydylan-xyz/hey-dylan-site/actions/workflows/accessibility-audit.yml">
+  <img eleventy:ignore src="https://github.com/heydylan-xyz/hey-dylan-site/actions/workflows/accessibility-audit.yml/badge.svg" alt="Accessibility Audit Status" style="width: 500px;">
+</a>
 
 [pa11y-ci](https://github.com/pa11y/pa11y-ci) is used to run automated accessibility tests on every update to this site. This ensures that all design elements and site structures consistently meet **WCAG 2.1 AA** standards.
 
@@ -22,7 +24,7 @@ _Eleventy Excellent_ aims to be conformant with [ WCAG 2.1 Level AA.](https://ww
 
 Please let me know if you encounter any accessibility barriers:
 
-- **Email**: {{ meta.creator.email }}
+**Email**: {{ meta.creator.email }}
 
 ---
 

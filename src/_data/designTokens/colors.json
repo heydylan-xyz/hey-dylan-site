@@ -40,19 +40,19 @@
     },
     {
       "name": "Pink",
-      "value": "#dd4462"
+      "value": "#e192a6"
     },
     {
-      "name": "Pink Subdued",
-      "value": "#ce5769"
+      "name": "Pink Dark",
+      "value": "#AC576C"
     },
     {
       "name": "Blue",
-      "value": "#4467dd"
+      "value": "#4b7599"
     },
     {
-      "name": "Blue Subdued",
-      "value": "#4d6cc8"
+      "name": "Blue Dark",
+      "value": "#92bce1"
     },
     {
       "name": "Green",
@@ -64,11 +64,11 @@
     },
     {
       "name": "Gold",
-      "value": "#fbbe25"
+      "value": "#e6cc8d"
     },
     {
-      "name": "Gold Subdued",
-      "value": "#f1c15b"
+      "name": "Gold Dark",
+      "value": "#896e2d"
     }
   ]
 }

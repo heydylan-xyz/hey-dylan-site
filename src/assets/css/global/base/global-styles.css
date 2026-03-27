@@ -70,11 +70,14 @@ textarea {
   caret-color: var(--color-primary);
 }
 
-svg {
+
+/* Scope out .mermaid */
+svg:not(.mermaid svg) {
   block-size: 0.6lh;
   inline-size: auto;
   flex: none;
 }
+
 
 b,
 strong {
@@ -188,4 +191,37 @@ a:not([class]):hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Mermaid container */
+.mermaid {
+  background-color: #e4e4e4;
+  border: 1px solid #aeaeae;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-l);
+  margin: var(--space-m-l) 0;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.mermaid svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+}
+
+.mermaid .edgeLabel text {
+  fill: #161616;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

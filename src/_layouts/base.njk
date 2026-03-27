@@ -11,8 +11,8 @@
 
     <!-- 2 title -->
     <title>
-      {%- if title -%}
-        {{- title -}}
+      {%- if title and title != meta.siteName -%}
+        {{- title }} | {{ meta.siteName -}}
       {%- else -%}
         {{- meta.siteName -}}
       {%- endif -%}
@@ -55,5 +55,45 @@
       <script type="module" src="/assets/scripts/components/custom-easteregg.js"></script>
       <custom-easteregg></custom-easteregg>
     {%- endif -%}
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+  mermaid.initialize({ startOnLoad: false, theme: 'forest' });
+
+  async function initMermaid() {
+    await document.fonts.ready;
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'forest',
+      htmlLabels: false,
+      themeVariables: {
+        fontFamily: 'arial, sans-serif',
+        fontSize: '32px'
+      },
+      flowchart: {
+        padding: 60,
+        nodeSpacing: 90,
+        curve: 'basis',
+        useMaxWidth: false
+      }
+    });
+
+    await mermaid.run();
+  }
+
+  document.querySelectorAll('.mermaid').forEach(el => {
+    el.setAttribute('data-original-source', el.textContent.trim());
+  });
+
+  if (document.readyState === 'complete') {
+    initMermaid();
+  } else {
+    window.addEventListener('load', initMermaid);
+  }
+</script>
+
   </body>
 </html>
