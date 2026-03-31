@@ -80,7 +80,18 @@
       }
     });
 
-await mermaid.run();
+// Decode HTML entities so Mermaid receives clean syntax
+    document.querySelectorAll('.mermaid').forEach(el => {
+      const decoded = el.innerHTML
+        .replace(/&gt;/g, '>')
+        .replace(/&lt;/g, '<')
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'");
+      el.textContent = decoded;
+    });
+
+    await mermaid.run();
 
     // Hide rendered SVGs from assistive technology — content is covered
     // by aria-hidden wrappers and visually-hidden descriptions
@@ -92,14 +103,6 @@ await mermaid.run();
 
   document.querySelectorAll('.mermaid').forEach(el => {
     el.setAttribute('data-original-source', el.textContent.trim());
-    // Decode HTML entities so Mermaid receives clean syntax
-    const decoded = el.innerHTML
-      .replace(/&gt;/g, '>')
-      .replace(/&lt;/g, '<')
-      .replace(/&amp;/g, '&')
-      .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'");
-    el.textContent = decoded;
   });
 
   if (document.readyState === 'complete') {
