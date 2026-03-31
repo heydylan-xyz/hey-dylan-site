@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Pet Vet — Intake Prototype</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --grey-100: #f4f4f4;
+      --grey-200: #e0e0e0;
+      --grey-400: #767676;
+      --grey-600: #666666;
+      --grey-800: #222222;
+      --green: #2e7d32;
+      --green-light: #e8f5e9;
+      --green-border: #a5d6a7;
+      --red: #c62828;
+      --red-light: #fff5f5;
+      --radius: 8px;
+      --focus: #1a73e8;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--white);
+    }
+
+    .screen {
+      display: none;
+      flex-direction: column;
+      min-height: 780px;
+    }
+
+    .screen.active { display: flex; }
+
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      padding: 1rem 1.25rem 0.75rem;
+      border-bottom: 1px solid var(--grey-200);
+      min-height: 52px;
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--grey-800);
+      padding: 0.25rem 0.5rem 0.25rem 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .back-btn:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .top-bar-title {
+      font-size: 0.75rem;
+      color: var(--grey-600);
+      font-family: Arial, sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .screen-content {
+      padding: 1.5rem 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      overflow-y: auto;
+      justify-content: center;
+    }
+
+    .screen-heading {
+      font-size: 1.35rem;
+      font-weight: bold;
+      color: var(--grey-800);
+      line-height: 1.3;
+    }
+
+    .screen-subtext {
+      font-size: 0.9rem;
+      color: var(--grey-600);
+      line-height: 1.5;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .btn:active { opacity: 0.8; }
+
+    .btn-primary {
+      background: var(--grey-800);
+      color: var(--white);
+      border: 2px solid var(--grey-800);
+      font-weight: bold;
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--grey-800);
+      border: 2px solid var(--grey-800);
+    }
+
+    .btn-category {
+      background: var(--white);
+      color: var(--grey-800);
+      border: 2px solid var(--grey-200);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .btn-category:hover,
+    .btn-category:focus-visible {
+      border-color: var(--grey-800);
+    }
+
+    .btn-category .btn-label { font-weight: bold; font-size: 0.95rem; }
+    .btn-category [aria-hidden] { font-size: 1.25rem; line-height: 1; }
+    .btn-category .btn-desc { font-size: 0.8rem; color: var(--grey-600); font-weight: normal; }
+
+    .btn-affirmative {
+      background: var(--green-light);
+      color: var(--green);
+      border: 2px solid var(--green-border);
+      font-weight: bold;
+    }
+
+    .btn-negative {
+      background: var(--red-light);
+      color: var(--red);
+      border: 2px solid #ffcdd2;
+      font-weight: bold;
+    }
+
+    .btn-slot {
+      background: var(--white);
+      color: var(--grey-800);
+      border: 2px solid var(--grey-200);
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .btn-slot:hover,
+    .btn-slot:focus-visible {
+      border-color: var(--grey-800);
+    }
+
+    .btn-slot .slot-label { font-weight: bold; }
+    .btn-slot .slot-type { font-size: 0.78rem; color: var(--grey-600); }
+
+    .btn-stack { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    /* ── PIMS simulation ── */
+    .pims-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .pims-label {
+      font-size: 0.75rem;
+      font-family: Arial, sans-serif;
+      color: var(--grey-600);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+
+    .pims-label::before { content: '⚙'; font-size: 0.8rem; }
+
+    .btn-pims {
+      background: var(--grey-100);
+      color: var(--grey-800);
+      border: 2px dashed var(--grey-400);
+      font-family: Arial, sans-serif;
+      font-size: 0.875rem;
+      cursor: pointer;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius);
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .btn-pims:hover { border-color: var(--grey-800); }
+    .btn-pims:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+    .pims-note {
+      font-size: 0.72rem;
+      font-family: Arial, sans-serif;
+      color: var(--grey-400);
+      line-height: 1.4;
+    }
+
+    /* ── Info callout (system messages) ── */
+    .info-callout {
+      border-left: 3px solid var(--grey-400);
+      padding: 0.75rem 1rem;
+      background: var(--grey-100);
+      font-family: Arial, sans-serif;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--grey-800);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    /* ── Symptom banner — greyscale, informational ── */
+    .symptom-banner {
+      padding: 0.875rem 1rem;
+      background: var(--grey-100);
+      border-left: 3px solid var(--grey-400);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .symptom-banner-title {
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--grey-600);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    .symptom-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .symptom-list li {
+      font-family: Arial, sans-serif;
+      font-size: 0.875rem;
+      color: var(--grey-800);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .symptom-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--grey-400);
+    }
+
+    /* Red variant for secondary triage re-check */
+    .symptom-banner.critical {
+      background: var(--red-light);
+      border-left-color: var(--red);
+    }
+
+    .symptom-banner.critical .symptom-banner-title { color: var(--red); }
+    .symptom-banner.critical .symptom-list li { color: var(--red); }
+    .symptom-banner.critical .symptom-list li::before { color: var(--red); }
+
+    /* ── Alert ── */
+    .alert {
+      padding: 0.875rem 1rem;
+      border-radius: var(--radius);
+      font-family: Arial, sans-serif;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .alert-grey {
+      background: var(--grey-100);
+      border: 1px solid var(--grey-200);
+      color: var(--grey-800);
+    }
+
+    /* ── Outcome boxes ── */
+    .terminal-icon {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 0.25rem;
+    }
+
+    .outcome-box {
+      background: var(--grey-100);
+      border: 1px solid var(--grey-200);
+      border-radius: var(--radius);
+      padding: 1rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--grey-800);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .outcome-box.green {
+      background: var(--green-light);
+      border-color: var(--green-border);
+    }
+
+
+    /* ── Utility classes (replace inline styles) ── */
+    .mt-xs  { margin-top: 0.25rem; }
+    .mt-s   { margin-top: 0.5rem; }
+    .mt-m   { margin-top: 1rem; }
+    .mt-l   { margin-top: 2rem; }
+    .text-green { color: var(--green); }
+    .text-red   { color: var(--red); }
+    .text-label {
+      font-size: 0.75rem;
+      font-family: Arial, sans-serif;
+      color: var(--grey-400);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .text-eyebrow {
+      font-size: 0.75rem;
+      font-family: Arial, sans-serif;
+      color: var(--grey-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .text-disclaimer {
+      font-size: 0.72rem;
+      font-family: Arial, sans-serif;
+      color: var(--grey-600);
+      line-height: 1.5;
+    }
+    /* ── Screen reader live region ── */
+    #sr-announce {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<div aria-live="polite" aria-atomic="true" id="sr-announce"></div>
+
+<div role="main">
+
+  <!-- WELCOME -->
+  <section class="screen active" id="s-welcome" aria-label="Welcome">
+    <div class="top-bar"></div>
+    <div class="screen-content">
+      <p class="text-label">City Pet Vet</p>
+      <h1 class="screen-heading">Welcome to City Pet Vet.</h1>
+      <p class="screen-subtext">Let's make sure your pet gets the right care.</p>
+      <div class="btn-stack" class="mt-m">
+        <button class="btn btn-primary" onclick="go('s-emergency')">Get Started</button>
+      </div>
+      <p class="text-disclaimer mt-l">This is a lo-fi prototype demonstrating service architecture and conversation design for a fictional veterinary clinic.</p>
+    </div>
+  </section>
+
+  <!-- EMERGENCY GATE -->
+  <section class="screen" id="s-emergency" aria-label="Emergency check">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-welcome')" aria-label="Go back">← Back</button>
+    </div>
+    <div class="screen-content">
+      <p class="screen-subtext" class="screen-subtext text-eyebrow">First, a quick check.</p>
+      <h1 class="screen-heading">Is your pet experiencing any of the following right now?</h1>
+      <div class="symptom-banner" role="note" aria-label="Symptoms requiring immediate care">
+        <p class="symptom-banner-title">Requires immediate care</p>
+        <ul class="symptom-list">
+          <li>Difficulty breathing</li>
+          <li>Seizures</li>
+          <li>Severe trauma</li>
+          <li>Unconsciousness</li>
+        </ul>
+      </div>
+      <div class="btn-stack">
+        <button class="btn btn-negative" onclick="go('s-urgent-exit')">Yes — my pet has one of these symptoms</button>
+        <button class="btn btn-affirmative" onclick="go('s-category')">No — none of these apply</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- URGENT CARE EXIT -->
+  <section class="screen" id="s-urgent-exit" aria-label="Urgent care required" aria-live="assertive">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-emergency')" aria-label="Go back">← Back</button>
+    </div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">🚨</div>
+      <h1 class="screen-heading" class="text-red">Go to the nearest urgent care location immediately.</h1>
+      <div class="info-callout" role="note">
+        Your pet needs hands-on triage right away. Please do not wait to book online.
+      </div>
+      <div class="btn-stack">
+        <button class="btn btn-negative" onclick="alert('Directions would open here.')"><span aria-hidden="true">📍</span> Get Directions</button>
+        <button class="btn btn-secondary" onclick="go('s-emergency')">Go Back</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY SELECTION -->
+  <section class="screen" id="s-category" aria-label="Select a service category">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-emergency')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">City Pet Vet</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Tell us what your pet needs.</h1>
+      <div class="btn-stack">
+        <button class="btn btn-category" onclick="go('s-sick-new-or-followup')">
+          <span aria-hidden="true">🤒</span>
+          <span class="btn-label">Sick or Injured</span>
+          <span class="btn-desc">New symptoms or a worsening condition</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-routine-service')">
+          <span aria-hidden="true">🩺</span>
+          <span class="btn-label">Routine &amp; Preventative</span>
+          <span class="btn-desc">Wellness exams, vaccines, and dental care</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-clinical-new-or-followup')">
+          <span aria-hidden="true">🧪</span>
+          <span class="btn-label">Clinical Support</span>
+          <span class="btn-desc">Technician-led services including labs and booster shots</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-qol-message')">
+          <span aria-hidden="true">💙</span>
+          <span class="btn-label">Quality of Life</span>
+          <span class="btn-desc">Support for aging pets, chronic illness, and end-of-life care</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-surgery-service')">
+          <span aria-hidden="true">🔬</span>
+          <span class="btn-label">Surgeries &amp; Specialist Care</span>
+          <span class="btn-desc">Spay/neuter, orthopedic, oncology, and planned procedures</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       APPOINTMENT SELECTION SCREENS
+       One per appointment type — all route to
+       their respective confirmation screen,
+       passing the chosen slot via data attribute
+  ══════════════════════════════════════════ -->
+
+  <section class="screen" id="s-appt-vet-consult" aria-label="Select appointment time">
+    <div class="top-bar">
+      <button class="back-btn" onclick="history.go(-1)" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Choose a Time</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">When would you like to come in?</h1>
+      <p class="screen-subtext">Appointment type: Veterinary Consultation with DVM</p>
+      <div class="btn-stack">
+        <button class="btn btn-slot" onclick="book('s-outcome-vet-consult', 'Morning slot', 'Veterinary Consultation — DVM')">
+          <span class="slot-label">Morning slot</span>
+          <span class="slot-type">Approx. 30–45 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-vet-consult', 'Midday slot', 'Veterinary Consultation — DVM')">
+          <span class="slot-label">Midday slot</span>
+          <span class="slot-type">Approx. 30–45 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-vet-consult', 'Afternoon slot', 'Veterinary Consultation — DVM')">
+          <span class="slot-label">Afternoon slot</span>
+          <span class="slot-type">Approx. 30–45 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-vet-consult', 'Next available', 'Veterinary Consultation — DVM')">
+          <span class="slot-label">Next available</span>
+          <span class="slot-type">First opening on the schedule</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-appt-vet-followup" aria-label="Select appointment time">
+    <div class="top-bar">
+      <button class="back-btn" onclick="history.go(-1)" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Choose a Time</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">When would you like to come in?</h1>
+      <p class="screen-subtext">Appointment type: Veterinary Consultation Follow-up with DVM</p>
+      <div class="btn-stack">
+        <button class="btn btn-slot" onclick="book('s-outcome-vet-followup', 'Morning slot', 'Veterinary Consultation Follow-up — DVM')">
+          <span class="slot-label">Morning slot</span>
+          <span class="slot-type">Approx. 20–30 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-vet-followup', 'Midday slot', 'Veterinary Consultation Follow-up — DVM')">
+          <span class="slot-label">Midday slot</span>
+          <span class="slot-type">Approx. 20–30 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-vet-followup', 'Afternoon slot', 'Veterinary Consultation Follow-up — DVM')">
+          <span class="slot-label">Afternoon slot</span>
+          <span class="slot-type">Approx. 20–30 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-vet-followup', 'Next available', 'Veterinary Consultation Follow-up — DVM')">
+          <span class="slot-label">Next available</span>
+          <span class="slot-type">First opening on the schedule</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-appt-urgent" aria-label="Select appointment time">
+    <div class="top-bar">
+      <button class="back-btn" onclick="history.go(-1)" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Choose a Time</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Select your same-day slot.</h1>
+      <p class="screen-subtext">Appointment type: Urgent Consultation — same-day priority</p>
+      <div class="btn-stack">
+        <button class="btn btn-slot" onclick="book('s-outcome-urgent-consult', 'Morning slot', 'Urgent Consultation — same-day')">
+          <span class="slot-label">Morning slot</span>
+          <span class="slot-type">Priority fit-in</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-urgent-consult', 'Afternoon slot', 'Urgent Consultation — same-day')">
+          <span class="slot-label">Afternoon slot</span>
+          <span class="slot-type">Priority fit-in</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-appt-clinical" aria-label="Select appointment time">
+    <div class="top-bar">
+      <button class="back-btn" onclick="history.go(-1)" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Choose a Time</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">When would you like to come in?</h1>
+      <p class="screen-subtext">Appointment type: Clinical Support Visit with Vet Tech</p>
+      <div class="btn-stack">
+        <button class="btn btn-slot" onclick="book('s-outcome-clinical-support', 'Morning slot', 'Clinical Support Visit — Vet Tech')">
+          <span class="slot-label">Morning slot</span>
+          <span class="slot-type">Approx. 15–20 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-clinical-support', 'Midday slot', 'Clinical Support Visit — Vet Tech')">
+          <span class="slot-label">Midday slot</span>
+          <span class="slot-type">Approx. 15–20 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-clinical-support', 'Afternoon slot', 'Clinical Support Visit — Vet Tech')">
+          <span class="slot-label">Afternoon slot</span>
+          <span class="slot-type">Approx. 15–20 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-clinical-support', 'Next available', 'Clinical Support Visit — Vet Tech')">
+          <span class="slot-label">Next available</span>
+          <span class="slot-type">First opening on the schedule</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-appt-surgery-followup" aria-label="Select appointment time">
+    <div class="top-bar">
+      <button class="back-btn" onclick="history.go(-1)" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Choose a Time</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">When would you like to come in?</h1>
+      <p class="screen-subtext">Appointment type: Specialized Follow-up — treatment or re-check</p>
+      <div class="btn-stack">
+        <button class="btn btn-slot" onclick="book('s-outcome-surgery-followup', 'Morning slot', 'Specialized Follow-up')">
+          <span class="slot-label">Morning slot</span>
+          <span class="slot-type">Approx. 30–60 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-surgery-followup', 'Afternoon slot', 'Specialized Follow-up')">
+          <span class="slot-label">Afternoon slot</span>
+          <span class="slot-type">Approx. 30–60 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-surgery-followup', 'Next available', 'Specialized Follow-up')">
+          <span class="slot-label">Next available</span>
+          <span class="slot-type">First opening on the schedule</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-appt-surgery-consult" aria-label="Select appointment time">
+    <div class="top-bar">
+      <button class="back-btn" onclick="history.go(-1)" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Choose a Time</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">When would you like to come in?</h1>
+      <p class="screen-subtext">Appointment type: Pre-Surgical Consultation with DVM</p>
+      <div class="btn-stack">
+        <button class="btn btn-slot" onclick="book('s-outcome-surgery-consult', 'Morning slot', 'Pre-Surgical Consultation — DVM')">
+          <span class="slot-label">Morning slot</span>
+          <span class="slot-type">Approx. 45–60 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-surgery-consult', 'Afternoon slot', 'Pre-Surgical Consultation — DVM')">
+          <span class="slot-label">Afternoon slot</span>
+          <span class="slot-type">Approx. 45–60 min</span>
+        </button>
+        <button class="btn btn-slot" onclick="book('s-outcome-surgery-consult', 'Next available', 'Pre-Surgical Consultation — DVM')">
+          <span class="slot-label">Next available</span>
+          <span class="slot-type">First opening on the schedule</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ ROUTINE / PREVENTATIVE ══ -->
+
+  <section class="screen" id="s-routine-service" aria-label="Select routine service">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-category')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Routine &amp; Preventative</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">What kind of appointment do you need?</h1>
+      <div class="btn-stack">
+        <button class="btn btn-category" onclick="go('s-routine-symptom-check')">
+          <span class="btn-label">Wellness Exam</span>
+          <span class="btn-desc">Annual or bi-annual checkup with your DVM</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-routine-symptom-check')">
+          <span class="btn-label">Vaccinations</span>
+          <span class="btn-desc">Core and non-core vaccine appointments</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-routine-symptom-check')">
+          <span class="btn-label">Dental Cleaning</span>
+          <span class="btn-desc">Professional dental cleaning under anesthesia</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-routine-symptom-check" aria-label="Symptom check">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-routine-service')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Routine &amp; Preventative</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Does your pet have any new symptoms or health concerns you'd like to discuss?</h1>
+      <p class="screen-subtext">Even if the appointment is routine, let us know about anything new.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-routine-safety-override')">Yes, there's something new</button>
+        <button class="btn btn-secondary" onclick="go('s-login-routine-standard')">No, everything seems fine</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-routine-safety-override" aria-label="Clinical safety override">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-routine-symptom-check')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Routine &amp; Preventative</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">We want to make sure your pet gets the right care.</h1>
+      <div class="info-callout" role="note">
+        To give that new concern the time it deserves, we'll need to book this as a Veterinary Consultation instead of a routine exam. This ensures the doctor has time for diagnostics.
+      </div>
+      <p class="screen-subtext">This is the best way to make sure we're treating the right thing, not just the symptom.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-login-routine-override')">That makes sense — continue</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-login-routine-override" aria-label="Log in or create account">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-routine-safety-override')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Your Account</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Let's pull up your pet's information.</h1>
+      <p class="screen-subtext">Log in or create an account to continue. This helps us match your pet to the right care.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-appt-vet-consult')">Log In</button>
+        <button class="btn btn-secondary" onclick="go('s-appt-vet-consult')">Create Account</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-login-routine-standard" aria-label="Log in or create account">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-routine-symptom-check')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Your Account</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Let's pull up your pet's information.</h1>
+      <p class="screen-subtext">Log in or create an account to continue.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-routine-service-validation')">Log In</button>
+        <button class="btn btn-secondary" onclick="go('s-routine-service-validation')">Create Account</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-routine-service-validation" aria-label="Service validation">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-login-routine-standard')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Routine &amp; Preventative</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Checking your appointment type...</h1>
+      <div class="alert alert-grey" role="note">
+        Verifying whether this service requires a DVM examination.
+      </div>
+      <div class="pims-group" class="mt-s">
+        <p class="pims-label">Simulated PIMS routing — tap to select outcome</p>
+        <button class="btn-pims" onclick="go('s-appt-vet-consult')">Requires DVM exam → Veterinary Consultation</button>
+        <button class="btn-pims" onclick="go('s-appt-clinical')">Technician only → Clinical Support Visit</button>
+        <p class="pims-note">In the live system this routes automatically based on service type.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ SICK / INJURED ══ -->
+
+  <section class="screen" id="s-sick-new-or-followup" aria-label="New issue or follow-up">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-category')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Sick or Injured</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Is this a new issue or a follow-up to a previous visit?</h1>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-sick-new-condition')">This is a new issue</button>
+        <button class="btn btn-secondary" onclick="go('s-sick-followup-condition')">This is a follow-up</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-sick-new-condition" aria-label="Condition assessment">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-sick-new-or-followup')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Sick or Injured</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">How would you describe your pet's condition right now?</h1>
+      <div class="btn-stack">
+        <button class="btn btn-negative" onclick="go('s-login-sick-worsening')">It's getting worse</button>
+        <button class="btn btn-secondary" onclick="go('s-login-sick-stable')">It seems stable</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-sick-followup-condition" aria-label="Follow-up condition check">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-sick-new-or-followup')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Sick or Injured</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Has the condition improved or worsened since your last visit?</h1>
+      <div class="btn-stack">
+        <button class="btn btn-affirmative" onclick="go('s-login-sick-improving')">It's stable or improving</button>
+        <button class="btn btn-negative" onclick="go('s-login-sick-worsening')">It's getting worse</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-login-sick-improving" aria-label="Log in or create account">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-sick-followup-condition')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Your Account</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Let's pull up your pet's information.</h1>
+      <p class="screen-subtext">Log in or create an account to continue.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-appt-vet-followup')">Log In</button>
+        <button class="btn btn-secondary" onclick="go('s-appt-vet-followup')">Create Account</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-login-sick-stable" aria-label="Log in or create account">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-sick-new-condition')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Your Account</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Let's pull up your pet's information.</h1>
+      <p class="screen-subtext">Log in or create an account to continue.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-appt-vet-consult')">Log In</button>
+        <button class="btn btn-secondary" onclick="go('s-appt-vet-consult')">Create Account</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-login-sick-worsening" aria-label="Log in or create account">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-sick-new-condition')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Your Account</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Let's pull up your pet's information.</h1>
+      <p class="screen-subtext">Log in or create an account to continue.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-sick-availability')">Log In</button>
+        <button class="btn btn-secondary" onclick="go('s-sick-availability')">Create Account</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-sick-availability" aria-label="Checking availability">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-login-sick-worsening')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Sick or Injured</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Checking today's availability...</h1>
+      <div class="alert alert-grey" role="note">
+        Looking for same-day appointments for a worsening condition.
+      </div>
+      <div class="pims-group" class="mt-s">
+        <p class="pims-label">Simulated PIMS routing — tap to select outcome</p>
+        <button class="btn-pims" onclick="go('s-appt-urgent')">Same-day slot available → Urgent Consultation</button>
+        <button class="btn-pims" onclick="go('s-sick-redflag')">No availability today → Secondary triage</button>
+        <p class="pims-note">In the live system this checks the clinic's live calendar API.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-sick-redflag" aria-label="Critical symptoms re-check">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-sick-availability')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Sick or Injured</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">We're fully booked today.</h1>
+      <p class="screen-subtext">Because your pet's condition is worsening, we want to make sure they're seen as soon as possible. Just to be safe — is your pet experiencing any of these right now?</p>
+      <div class="symptom-banner critical" role="note" aria-label="Critical symptoms list">
+        <p class="symptom-banner-title">Critical symptoms</p>
+        <ul class="symptom-list">
+          <li>Difficulty breathing</li>
+          <li>Seizures</li>
+          <li>Unconsciousness</li>
+        </ul>
+      </div>
+      <div class="btn-stack">
+        <button class="btn btn-negative" onclick="go('s-outcome-walkin')">Yes — I'm seeing these symptoms</button>
+        <button class="btn btn-secondary" onclick="go('s-outcome-triage-callback')">No — but I still need to be seen soon</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ CLINICAL SUPPORT ══ -->
+
+  <section class="screen" id="s-clinical-new-or-followup" aria-label="New issue or follow-up">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-category')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Clinical Support</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Is this a new concern or a follow-up?</h1>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-clinical-new-redirect')">This is a new concern</button>
+        <button class="btn btn-secondary" onclick="go('s-login-clinical')">This is a follow-up</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-clinical-new-redirect" aria-label="New concern redirect">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-clinical-new-or-followup')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Clinical Support</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Before we get you scheduled.</h1>
+      <div class="info-callout" role="note">
+        For new concerns, we'll need to start with a consultation. This allows a doctor to examine your pet and ensure we're providing the right treatment before moving to a technician visit.
+      </div>
+      <p class="screen-subtext">We'll get you booked for a veterinary consultation first.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-login-clinical-new')">Continue to booking</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-login-clinical-new" aria-label="Log in or create account">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-clinical-new-redirect')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Your Account</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Let's pull up your pet's information.</h1>
+      <p class="screen-subtext">Log in or create an account to continue.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-appt-vet-consult')">Log In</button>
+        <button class="btn btn-secondary" onclick="go('s-appt-vet-consult')">Create Account</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-login-clinical" aria-label="Log in">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-clinical-new-or-followup')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Your Account</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Let's pull up your pet's information.</h1>
+      <p class="screen-subtext">Log in to see your pending technician tasks and prescription history.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-clinical-service')">Log In</button>
+        <button class="btn btn-secondary" onclick="go('s-clinical-service')">Create Account</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-clinical-service" aria-label="Select clinical service">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-login-clinical')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Clinical Support</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">What do you need today?</h1>
+      <div class="alert alert-grey" role="note">
+        Your pending technician tasks have been loaded from your profile.
+      </div>
+      <div class="btn-stack">
+        <button class="btn btn-category" onclick="go('s-appt-clinical')">
+          <span class="btn-label">Booster Shots</span>
+          <span class="btn-desc">Due boosters from your pet's vaccine record</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-appt-clinical')">
+          <span class="btn-label">Blood Work</span>
+          <span class="btn-desc">Lab draw or results review</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-appt-clinical')">
+          <span class="btn-label">Lab Results</span>
+          <span class="btn-desc">Review pending lab results with a technician</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-clinical-rx-check')">
+          <span class="btn-label">Prescription Refill</span>
+          <span class="btn-desc">Request a refill for an existing medication</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-clinical-rx-check" aria-label="Prescription DVM check">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-clinical-service')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Prescription Refill</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Checking your prescription records...</h1>
+      <div class="alert alert-grey" role="note">
+        Verifying active prescriptions and refill eligibility with your DVM.
+      </div>
+      <div class="pims-group" class="mt-s">
+        <p class="pims-label">Simulated PIMS routing — tap to select outcome</p>
+        <button class="btn-pims" onclick="go('s-clinical-rx-select')">Active prescriptions found — continue</button>
+        <p class="pims-note">In the live system this pulls from your prescription history automatically.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-clinical-rx-select" aria-label="Select prescriptions to refill">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-clinical-rx-check')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Prescription Refill</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Select the prescription you'd like to refill.</h1>
+      <p class="screen-subtext">You can add notes for your DVM in the comment field.</p>
+      <div class="btn-stack">
+        <button class="btn btn-category" onclick="go('s-outcome-rx-sent')">
+          <span class="btn-label">Medication A</span>
+          <span class="btn-desc">Last refilled 30 days ago — eligible</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-outcome-rx-sent')">
+          <span class="btn-label">Medication B</span>
+          <span class="btn-desc">Last refilled 14 days ago — eligible</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ QUALITY OF LIFE ══ -->
+
+  <section class="screen" id="s-qol-message" aria-label="Quality of life care">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-category')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Quality of Life</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">We are here to support you and your pet.</h1>
+      <div class="info-callout" role="note">
+        For new consults, our Comfort Animal team reviews each inquiry personally to ensure we provide the right level of care.
+      </div>
+      <p class="screen-subtext">Take your time — there's no rush here.</p>
+      <div class="btn-stack" class="mt-s">
+        <button class="btn btn-primary" onclick="go('s-qol-service')">Continue</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-qol-service" aria-label="Select quality of life service">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-qol-message')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Quality of Life</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">What brings you in today?</h1>
+      <div class="btn-stack">
+        <button class="btn btn-category" onclick="go('s-login-qol')">
+          <span class="btn-label">Initial Consult</span>
+          <span class="btn-desc">First conversation with our Comfort Animal team</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-login-qol')">
+          <span class="btn-label">Follow-up</span>
+          <span class="btn-desc">Continue an existing comfort care plan</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-login-qol')">
+          <span class="btn-label">General Inquiry</span>
+          <span class="btn-desc">Questions about options, costs, or what to expect</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-login-qol" aria-label="Log in or create account">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-qol-service')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Your Account</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Let's pull up your pet's information.</h1>
+      <p class="screen-subtext">Log in or create an account to continue.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-qol-active-case')">Log In</button>
+        <button class="btn btn-secondary" onclick="go('s-qol-active-case')">Create Account</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-qol-active-case" aria-label="Checking comfort care records">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-login-qol')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Quality of Life</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Checking your pet's comfort care records...</h1>
+      <div class="alert alert-grey" role="note">
+        Looking for an active Comfort Care case on your profile.
+      </div>
+      <div class="pims-group" class="mt-s">
+        <p class="pims-label">Simulated PIMS routing — tap to select outcome</p>
+        <button class="btn-pims" onclick="go('s-outcome-comfort-followup')">Active case found → Book follow-up consult</button>
+        <button class="btn-pims" onclick="go('s-outcome-comfort-inquiry')">No active case → New inquiry form</button>
+        <p class="pims-note">In the live system this checks for an active Comfort Care case on your profile.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ SPECIALIZED / SURGERY ══ -->
+
+  <section class="screen" id="s-surgery-service" aria-label="Select specialized service">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-category')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Surgeries &amp; Specialist Care</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">What kind of care does your pet need?</h1>
+      <div class="info-callout" role="note">
+        We know getting here wasn't easy. Whether this is your first visit or you're continuing care, our surgical team reviews every case personally before your appointment — so you'll never walk in without a plan.
+      </div>
+      <div class="btn-stack" class="mt-xs">
+        <button class="btn btn-category" onclick="go('s-login-surgery')">
+          <span class="btn-label">Spay / Neuter</span>
+          <span class="btn-desc">Routine surgical sterilization</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-login-surgery')">
+          <span class="btn-label">Orthopedic</span>
+          <span class="btn-desc">Joint, bone, and mobility procedures</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-login-surgery')">
+          <span class="btn-label">Oncology</span>
+          <span class="btn-desc">Cancer diagnosis, treatment, and management</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-login-surgery')">
+          <span class="btn-label">Other Surgery</span>
+          <span class="btn-desc">Soft tissue or other planned surgical procedures</span>
+        </button>
+        <button class="btn btn-category" onclick="go('s-outcome-travel-form')">
+          <span class="btn-label">International Travel Certificate</span>
+          <span class="btn-desc">Health certificate and documentation for international travel</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-login-surgery" aria-label="Log in or create account">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-surgery-service')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Your Account</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Let's pull up your pet's information.</h1>
+      <p class="screen-subtext">Log in or create an account to continue.</p>
+      <div class="btn-stack">
+        <button class="btn btn-primary" onclick="go('s-surgery-active-case')">Log In</button>
+        <button class="btn btn-secondary" onclick="go('s-surgery-active-case')">Create Account</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-surgery-active-case" aria-label="Checking surgical records">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-login-surgery')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">Surgeries &amp; Specialist Care</span>
+    </div>
+    <div class="screen-content">
+      <h1 class="screen-heading">Checking your pet's surgical records...</h1>
+      <div class="alert alert-grey" role="note">
+        Looking for an active surgical plan or oncology case on your profile.
+      </div>
+      <div class="pims-group" class="mt-s">
+        <p class="pims-label">Simulated PIMS routing — tap to select outcome</p>
+        <button class="btn-pims" onclick="go('s-appt-surgery-followup')">Active case found → Specialized follow-up</button>
+        <button class="btn-pims" onclick="go('s-appt-surgery-consult')">No active case → Pre-surgical consultation</button>
+        <p class="pims-note">In the live system this checks for an active surgical plan or oncology case on your profile.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ OUTCOME SCREENS ══ -->
+
+  <section class="screen" id="s-outcome-vet-consult" aria-label="Booking confirmed" aria-live="polite">
+    <div class="top-bar"><span class="top-bar-title">Booking Confirmed</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">✓</div>
+      <h1 class="screen-heading" class="text-green">You're booked.</h1>
+      <div class="outcome-box green">
+        <p><strong>Appointment type:</strong> Veterinary Consultation</p>
+        <p><strong>With:</strong> DVM</p>
+        <p id="slot-vet-consult"><strong>Time:</strong> —</p>
+        <p>You'll receive a confirmation and reminder via SMS.</p>
+      </div>
+      <button class="btn btn-secondary" class="mt-m" onclick="go('s-welcome')">Start Over</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-vet-followup" aria-label="Booking confirmed" aria-live="polite">
+    <div class="top-bar"><span class="top-bar-title">Booking Confirmed</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">✓</div>
+      <h1 class="screen-heading" class="text-green">You're booked.</h1>
+      <div class="outcome-box green">
+        <p><strong>Appointment type:</strong> Veterinary Consultation Follow-up</p>
+        <p><strong>With:</strong> DVM</p>
+        <p id="slot-vet-followup"><strong>Time:</strong> —</p>
+        <p>You'll receive a confirmation and reminder via SMS.</p>
+      </div>
+      <button class="btn btn-secondary" class="mt-m" onclick="go('s-welcome')">Start Over</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-urgent-consult" aria-label="Urgent consultation confirmed" aria-live="assertive">
+    <div class="top-bar"><span class="top-bar-title">Booking Confirmed</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">✓</div>
+      <h1 class="screen-heading" class="text-green">You're booked.</h1>
+      <div class="outcome-box green">
+        <p><strong>Appointment type:</strong> Urgent Consultation</p>
+        <p><strong>Priority:</strong> Same-day fit-in</p>
+        <p id="slot-urgent"><strong>Time:</strong> —</p>
+        <p>Head to the clinic now. Our team is expecting you.</p>
+      </div>
+      <button class="btn btn-secondary" class="mt-m" onclick="go('s-welcome')">Start Over</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-walkin" aria-label="Walk-in triage required" aria-live="assertive">
+    <div class="top-bar"><span class="top-bar-title">Immediate Care Required</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">🚨</div>
+      <h1 class="screen-heading" class="text-red">Come to the clinic immediately.</h1>
+      <div class="info-callout" role="note">
+        While our schedule is full, these symptoms require immediate lobby triage. Our team will assess your pet upon arrival.
+      </div>
+      <div class="btn-stack" class="mt-m">
+        <button class="btn btn-negative" onclick="alert('Directions would open here.')"><span aria-hidden="true">📍</span> Get Directions</button>
+        <button class="btn btn-secondary" onclick="go('s-welcome')">Start Over</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-triage-callback" aria-label="Triage callback arranged" aria-live="polite">
+    <div class="top-bar"><span class="top-bar-title">We've Got You Covered</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">📞</div>
+      <h1 class="screen-heading">We've got you covered.</h1>
+      <div class="info-callout" role="note">
+        Our triage team will call you within 30 minutes to help find a slot for your pet. If you need to be seen sooner, please contact our partner urgent care.
+      </div>
+      <div class="btn-stack" class="mt-m">
+        <button class="btn btn-primary" onclick="alert('Partner urgent care number would appear here.')">Call Partner Urgent Care</button>
+        <button class="btn btn-secondary" onclick="go('s-welcome')">Got it — I'll wait for the callback</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-clinical-support" aria-label="Clinical support visit booked" aria-live="polite">
+    <div class="top-bar"><span class="top-bar-title">Booking Confirmed</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">✓</div>
+      <h1 class="screen-heading" class="text-green">You're booked.</h1>
+      <div class="outcome-box green">
+        <p><strong>Appointment type:</strong> Clinical Support Visit</p>
+        <p><strong>With:</strong> Vet Tech</p>
+        <p id="slot-clinical"><strong>Time:</strong> —</p>
+        <p>You'll receive a confirmation and reminder via SMS.</p>
+      </div>
+      <button class="btn btn-secondary" class="mt-m" onclick="go('s-welcome')">Start Over</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-rx-sent" aria-label="Refill request sent" aria-live="polite">
+    <div class="top-bar"><span class="top-bar-title">Request Sent</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">✓</div>
+      <h1 class="screen-heading" class="text-green">Refill request sent.</h1>
+      <div class="outcome-box green">
+        <p><strong>Status:</strong> Awaiting DVM approval</p>
+        <p>You'll receive a notification via SMS or email once your prescription is approved and ready.</p>
+      </div>
+      <button class="btn btn-secondary" class="mt-m" onclick="go('s-welcome')">Start Over</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-comfort-followup" aria-label="Comfort care follow-up booked" aria-live="polite">
+    <div class="top-bar"><span class="top-bar-title">Booking Confirmed</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">✓</div>
+      <h1 class="screen-heading" class="text-green">You're booked.</h1>
+      <div class="outcome-box green">
+        <p><strong>Appointment type:</strong> Comfort Care Follow-up Consult</p>
+        <p>Your Comfort Animal team will be in touch to confirm the details.</p>
+      </div>
+      <button class="btn btn-secondary" class="mt-m" onclick="go('s-welcome')">Start Over</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-comfort-inquiry" aria-label="Comfort care inquiry submitted" aria-live="polite">
+    <div class="top-bar"><span class="top-bar-title">Inquiry Submitted</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">✓</div>
+      <h1 class="screen-heading" class="text-green">Your inquiry has been received.</h1>
+      <div class="info-callout" role="note">
+        Our Comfort Animal team reviews each inquiry personally. Someone will reach out shortly to talk through the right level of care for you and your pet.
+      </div>
+      <p class="screen-subtext" class="mt-s">Share your pet's story — we're listening.</p>
+      <button class="btn btn-secondary" class="mt-m" onclick="go('s-welcome')">Start Over</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-surgery-followup" aria-label="Surgical follow-up booked" aria-live="polite">
+    <div class="top-bar"><span class="top-bar-title">Booking Confirmed</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">✓</div>
+      <h1 class="screen-heading" class="text-green">You're booked.</h1>
+      <div class="outcome-box green">
+        <p><strong>Appointment type:</strong> Specialized Follow-up</p>
+        <p><strong>Type:</strong> Treatment or re-check</p>
+        <p id="slot-surgery-followup"><strong>Time:</strong> —</p>
+        <p>Your surgical team will review your pet's case before the appointment.</p>
+      </div>
+      <button class="btn btn-secondary" class="mt-m" onclick="go('s-welcome')">Start Over</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-surgery-consult" aria-label="Pre-surgical consultation booked" aria-live="polite">
+    <div class="top-bar"><span class="top-bar-title">Booking Confirmed</span></div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">✓</div>
+      <h1 class="screen-heading" class="text-green">You're booked.</h1>
+      <div class="outcome-box green">
+        <p><strong>Appointment type:</strong> Pre-Surgical Consultation</p>
+        <p><strong>With:</strong> DVM</p>
+        <p id="slot-surgery-consult"><strong>Time:</strong> —</p>
+        <p>Your surgical team will review your pet's records before the appointment.</p>
+      </div>
+      <button class="btn btn-secondary" class="mt-m" onclick="go('s-welcome')">Start Over</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-outcome-travel-form" aria-label="International travel form" aria-live="polite">
+    <div class="top-bar">
+      <button class="back-btn" onclick="go('s-surgery-service')" aria-label="Go back">← Back</button>
+      <span class="top-bar-title">International Travel</span>
+    </div>
+    <div class="screen-content">
+      <div class="terminal-icon" aria-hidden="true">✈</div>
+      <h1 class="screen-heading">International Travel Certificate</h1>
+      <div class="info-callout" role="note">
+        Travel certificates require specialized paperwork and timing. Please fill out our International Travel form so our travel team can review your pet's records before we schedule.
+      </div>
+      <p class="screen-subtext" class="mt-xs">No login required for this process.</p>
+      <div class="btn-stack" class="mt-m">
+        <button class="btn btn-primary" onclick="alert('International Travel Form would open here.')">Open Travel Form</button>
+        <button class="btn btn-secondary" onclick="go('s-surgery-service')">Go Back</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  // Screen navigation
+  function go(screenId) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    const target = document.getElementById(screenId);
+    if (!target) return;
+    target.classList.add('active');
+    const heading = target.querySelector('h1');
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      heading.focus();
+    }
+    const announce = document.getElementById('sr-announce');
+    if (announce && heading) {
+      announce.textContent = '';
+      setTimeout(() => { announce.textContent = heading.textContent; }, 50);
+    }
+    target.scrollTop = 0;
+  }
+
+  // Appointment booking — passes chosen slot to confirmation screen
+  const slotMap = {
+    's-outcome-vet-consult':      'slot-vet-consult',
+    's-outcome-vet-followup':     'slot-vet-followup',
+    's-outcome-urgent-consult':   'slot-urgent',
+    's-outcome-clinical-support': 'slot-clinical',
+    's-outcome-surgery-followup': 'slot-surgery-followup',
+    's-outcome-surgery-consult':  'slot-surgery-consult',
+  };
+
+  function book(outcomeId, slotLabel, apptType) {
+    const slotElId = slotMap[outcomeId];
+    if (slotElId) {
+      const el = document.getElementById(slotElId);
+      if (el) el.innerHTML = '<strong>Time:</strong> ' + slotLabel;
+    }
+    go(outcomeId);
+  }
+
+  // Escape key triggers back button
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const backBtn = document.querySelector('.screen.active .back-btn');
+      if (backBtn) backBtn.click();
+    }
+  });
+</script>
+
+</body>
+</html>

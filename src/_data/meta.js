@@ -90,13 +90,17 @@ export const greenweb = {
 };
 export const tests = {
   pa11y: {
-    // keep customPaths empty if you want to test all pages
-    customPaths: ['/', '/about/', '/projects/', '/projects/duolingo-for-nintendo-switch/', '/projects/adaptive-veterinary-intake-and-clinical-service-architecture/', '/styleguide/'],
+    wait: 2000,
+    customPaths: ['/', '/about/', '/resume/', '/recommendations/', '/projects/', '/projects/duolingo-for-nintendo-switch/', '/projects/veterinary-intake-and-service-architecture/'],
     globalIgnore: [
       // Mermaid generates duplicate SVG internal IDs across multiple diagrams, not used for accessibility associations
       'WCAG2AA.Principle4.Guideline4_1.4_1_1.F77',
       // Pa11y false positive, flags CSS text inside Mermaid injected style tags as visible text, which it is not
-      'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail'
+      'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail',
+      // Pa11y false positive, flags CSS text inside Mermaid injected style tags as large text contrast, which it is not
+      'WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Fail',
+      // Mermaid SVG contrast checked before aria-hidden applied — content covered by visually-hidden descriptions
+      'WCAG2AA.Principle1.Guideline1_4.1_4_11.G195'
     ]
   }
 };

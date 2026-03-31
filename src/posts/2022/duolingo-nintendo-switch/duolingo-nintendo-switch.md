@@ -23,7 +23,7 @@ gallery:
     caption: "Listening Exercise UI"
 ---
 
-*This project was featured in <a href="https://medium.com/design-bootcamp/what-if-duolingo-was-available-for-nintendo-switch-56a2dfc5bfa3" target="_blank" rel="noopener">Bootcamp on Medium</a>.*
+*This project was featured in [Bootcamp on Medium](https://medium.com/design-bootcamp/what-if-duolingo-was-available-for-nintendo-switch-56a2dfc5bfa3).*
 
 ## Overview
 
@@ -116,4 +116,4 @@ This project challenged me to think beyond screen design and consider cross-plat
 
 ### Resources & Credits
 
-All designs and vector files were created by following the Duolingo design style guides and leveraging the following resources: <a href="https://www.deviantart.com/the-brunette-amitie/art/Official-Nintendo-Switch-Template-I-believe-657227093" target="_blank" rel="noopener">Nintendo Switch Game Box Art Template</a>, <a href="https://www.deviantart.com/jgamerxone/art/Switch-Cartridge-Template-742853271" target="_blank" rel="noopener">Nintendo Switch Game Cartridge Template</a>, and <a href="https://freebies.fluxes.com/nintendo-switch-ui-kit/" target="_blank" rel="noopener">Nintendo Switch UI Kit</a>.
+All designs and vector files were created by following the Duolingo design style guides and leveraging the following resources: [Nintendo Switch Game Box Art Template](https://www.deviantart.com/the-brunette-amitie/art/Official-Nintendo-Switch-Template-I-believe-657227093), [Nintendo Switch Game Cartridge Template](https://www.deviantart.com/jgamerxone/art/Switch-Cartridge-Template-742853271), and [Nintendo Switch UI Kit](https://freebies.fluxes.com/nintendo-switch-ui-kit/).

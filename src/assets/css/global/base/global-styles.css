@@ -150,6 +150,10 @@ a:not([class]):hover {
   .require-js {
     display: none;
   }
+
+  [aria-hidden="true"]:has(.mermaid:not([data-processed])) {
+    display: none;
+  }
 }
 
 /* Dynamic Hex Code - Light About Page */
@@ -224,4 +228,39 @@ a:not([class]):hover {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+@media (max-width: 768px) {
+  .flowchart-embed {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* Mermaid fallback — visible by default, hidden after Mermaid renders */
+.mermaid-fallback {
+  display: block;
+}
+
+.mermaid[data-processed] ~ .mermaid-fallback,
+[aria-hidden="true"]:has(.mermaid[data-processed]) ~ .mermaid-fallback {
+  display: none;
+}
+
+/* Phone mockup frame */
+.phone-mockup {
+  width: 100%;
+  max-width: 390px;
+  margin-inline: auto;
+  border-radius: 40px;
+  border: 6px solid #111;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  aspect-ratio: 9 / 19;
+}
+
+.phone-mockup iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }

@@ -2,7 +2,7 @@
 title: 'BetterReads'
 description: "Mobile app screens for a social reading app."
 date: 2022-04-26
-tags: ['UI design', 'Google Course']
+tags: ['UI design', 'Google course']
 image: '/assets/images/gallery/better-reads-cover.png'
 og_image: '/assets/og-images/better-reads-og.png'
 og_image_alt: "A collection of mobile app screens for BetterReads, showcasing a clean, high-contrast interface for tracking books and social reading activity."

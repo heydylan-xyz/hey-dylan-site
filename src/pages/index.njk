@@ -16,18 +16,35 @@ Dylan is a product-minded UX designer and content strategist in Seattle. He has 
 
 <custom-card img-square clickable>
   <figure slot="image">
-    <img src="/assets/images/gallery/ancestry-roles-permissions-square.png" alt="Desktop and mobile mockups of the Roles & Permissions dashboard, highlighting the 'Winston' profile management view and invitation status tabs" />
+    <img src="/assets/images/gallery/vet-intake-square.png" alt="Service architecture flowchart behind two phone mockups showing a booking confirmation and category selection screen from prototype" />
   </figure>
   
-  <h2 slot="headline">Roles & Permissions Feature</h2>
+  <h2 slot="headline">Veterinary Intake & Service Architecture</h2>
   
   <div slot="meta" class="meta cluster">
   </div>
   
-  <p slot="content">Designing a secure way for users to share Know Your Pet DNA test results with family members or veterinary professionals.</p>
+  <p slot="content">Speculative redesign including service architecture, FigJam flowchart, Mermaid.js user flows, and lo-fi prototype.</p>
   
   <footer slot="footer">
-    <a href="/projects/roles-and-permissions-feature/">Read case study</a>
+    <a href="/projects/veterinary-intake-and-service-architecture/">Read case study</a>
+  </footer>
+</custom-card>
+
+<custom-card img-square clickable>
+  <figure slot="image">
+    <img src="/assets/images/gallery/ancestry-account-settings-square.png" alt="Desktop and mobile redesign of pet DNA Account Settings interface." />
+  </figure>
+  
+  <h2 slot="headline">Account Settings Redesign</h2>
+  
+  <div slot="meta" class="meta cluster">
+  </div>
+  
+  <p slot="content">Redesigning a fragmented settings experience Ancestry's Know Your Pet DNA users.</p>
+  
+  <footer slot="footer">
+    <a href="/projects/account-settings-redesign/">Read case study</a>
   </footer>
 </custom-card>
 
@@ -65,23 +82,6 @@ Dylan is a product-minded UX designer and content strategist in Seattle. He has 
   </footer>
 </custom-card>
 
-<custom-card img-square clickable>
-  <figure slot="image">
-    <img src="/assets/images/gallery/ancestry-account-settings-square.png" alt="Desktop and mobile redesign of pet DNA Account Settings interface." />
-  </figure>
-  
-  <h2 slot="headline">Account Settings Redesign</h2>
-  
-  <div slot="meta" class="meta cluster">
-  </div>
-  
-  <p slot="content">Redesigning a fragmented settings experience Ancestry's Know Your Pet DNA users.</p>
-  
-  <footer slot="footer">
-    <a href="/projects/account-settings-redesign/">Read case study</a>
-  </footer>
-</custom-card>
-
 </div>
 
   <section class="full | region">
@@ -93,7 +93,7 @@ Dylan is a product-minded UX designer and content strategist in Seattle. He has 
       <div class="feature |  region region-space-l">
         <custom-masonry layout="50-50">
           {% set itemList = collections.allPosts %}
-					{% asyncEach item in itemList.slice(0, 4) %}
+					{% asyncEach item in itemList.slice(0, 6) %}
             {% set headingLevel = "h3" %}
 						{% include "partials/card-blog.njk" %}
 					{% endeach %}

@@ -2,7 +2,7 @@
 title: 'Editorial Content Writing'
 description: "Copywriting and editorial strategy for Pinterest's Today's Inspiration, Shopping Spotlights, and trend forecasting."
 date: 2023-03-01
-tags: ['pinterest', 'copy']
+tags: ['Pinterest', 'copywriting']
 image: '/assets/images/gallery/pinterest-content-cover.png'
 og_image: '/assets/og-images/pinterest-content-og.png'
 og_image_alt: "A collage of Pinterest editorials featuring vibrant lifestyle and trend-focused content."

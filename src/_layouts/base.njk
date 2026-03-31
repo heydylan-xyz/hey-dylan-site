@@ -81,7 +81,14 @@
       }
     });
 
-    await mermaid.run();
+await mermaid.run();
+
+    // Hide rendered SVGs from assistive technology — content is covered
+    // by aria-hidden wrappers and visually-hidden descriptions
+    document.querySelectorAll('.mermaid svg').forEach(svg => {
+      svg.setAttribute('aria-hidden', 'true');
+    });
+
   }
 
   document.querySelectorAll('.mermaid').forEach(el => {
