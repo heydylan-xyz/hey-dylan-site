@@ -68,7 +68,6 @@
     mermaid.initialize({
       startOnLoad: false,
       theme: 'forest',
-      htmlLabels: false,
       themeVariables: {
         fontFamily: 'arial, sans-serif',
         fontSize: '32px'
@@ -93,14 +92,6 @@ await mermaid.run();
 
   document.querySelectorAll('.mermaid').forEach(el => {
     el.setAttribute('data-original-source', el.textContent.trim());
-    // Decode HTML entities so Mermaid receives clean syntax
-    const decoded = el.innerHTML
-      .replace(/&gt;/g, '>')
-      .replace(/&lt;/g, '<')
-      .replace(/&amp;/g, '&')
-      .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'");
-    el.textContent = decoded;
   });
 
   if (document.readyState === 'complete') {
