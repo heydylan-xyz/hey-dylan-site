@@ -60,16 +60,16 @@ A sick pet isn't masked by a routine appointment type and David doesn't have to 
 <div aria-hidden="true">
 {% raw %}<div class="mermaid">
 flowchart TD
-  Start((Start)) --> Welcome["Welcome to City Pet Vet.\nLet's make sure your pet gets the right care."]
-  Welcome --> EmergencyGate{"Emergency symptoms?\n- Difficulty breathing\n- Seizures\n- Severe trauma\n- Unconsciousness"}
+  Start((Start)) --> Welcome["Welcome to City Pet Vet.<br/>Let's make sure your pet gets the right care."]
+  Welcome --> EmergencyGate{"Emergency symptoms?<br/>• Difficulty breathing<br/>• Seizures<br/>• Severe trauma<br/>• Unconsciousness"}
   EmergencyGate -- No --> Category["Select Category: Routine / Preventative"]
   EmergencyGate -- Yes --> UrgentCare(("Urgent Care Walk-in"))
   Category --> ServiceSelect["Select Service: Wellness Exam"]
-  ServiceSelect --> SymptomCheck{"New symptoms or\nhealth concerns?"}
+  ServiceSelect --> SymptomCheck{"New symptoms or<br/>health concerns?"}
   SymptomCheck -- Yes --> SafetyOverride["Clinical Safety Override"]
   SymptomCheck -- No --> Standard["Standard Wellness Path"]
   SafetyOverride --> Login["Login or Create Account"]
-  Login --> Success(("Veterinary Consultation\nBooked with DVM"))
+  Login --> Success(("Veterinary Consultation<br/>Booked with DVM"))
   style UrgentCare fill:#636363,stroke:#484848,color:#f8f8f8
   style Standard fill:#636363,stroke:#484848,color:#f8f8f8
   linkStyle 3 stroke:#808080,stroke-width:1px,stroke-dasharray:5 5
@@ -94,14 +94,14 @@ From there, the system detects an active oncology case on her profile and routes
 <div aria-hidden="true">
 {% raw %}<div class="mermaid">
 flowchart TD
-  Start((Start)) --> Welcome["Welcome to City Pet Vet.\nLet's make sure your pet gets the right care."]
-  Welcome --> EmergencyGate{"Emergency symptoms?\n- Difficulty breathing\n- Seizures\n- Severe trauma\n- Unconsciousness"}
+  Start((Start)) --> Welcome["Welcome to City Pet Vet.<br/>Let's make sure your pet gets the right care."]
+  Welcome --> EmergencyGate{"Emergency symptoms?<br/>• Difficulty breathing<br/>• Seizures<br/>• Severe trauma<br/>• Unconsciousness"}
   EmergencyGate -- No --> Category["Select Category: Specialized / Surgery"]
   EmergencyGate -- Yes --> UrgentCare(("Urgent Care Walk-in"))
   Category --> ServiceSelect["Select Service: Oncology"]
   ServiceSelect --> Login["Login or Create Account"]
-  Login --> ActiveCase{"Active surgical plan or\noncology case on file?"}
-  ActiveCase -- Yes --> Continuity(("Specialized Follow-up\nTreatment or re-check"))
+  Login --> ActiveCase{"Active surgical plan or<br/>oncology case on file?"}
+  ActiveCase -- Yes --> Continuity(("Specialized Follow-up<br/>Treatment or re-check"))
   ActiveCase -- No --> Establish["Pre-Surgical Consultation Path"]
   style UrgentCare fill:#636363,stroke:#484848,color:#f8f8f8
   style Establish fill:#636363,stroke:#484848,color:#f8f8f8
@@ -127,8 +127,8 @@ The clinic relationship stays intact even at capacity.
 <div aria-hidden="true">
 {% raw %}<div class="mermaid">
 flowchart TD
-  Start((Start)) --> Welcome["Welcome to City Pet Vet.\nLet's make sure your pet gets the right care."]
-  Welcome --> EmergencyGate{"Emergency symptoms?\n- Difficulty breathing\n- Seizures\n- Severe trauma\n- Unconsciousness"}
+  Start((Start)) --> Welcome["Welcome to City Pet Vet.<br/>Let's make sure your pet gets the right care."]
+  Welcome --> EmergencyGate{"Emergency symptoms?<br/>• Difficulty breathing<br/>• Seizures<br/>• Severe trauma<br/>• Unconsciousness"}
   EmergencyGate -- No --> Category["Select Category: Sick / Injured"]
   EmergencyGate -- Yes --> UrgentCare(("Urgent Care Walk-in"))
   Category --> NewOrFollowUp{"New issue or follow-up?"}
@@ -137,10 +137,10 @@ flowchart TD
   Condition -- Worsening --> Login["Login or Create Account"]
   Condition -- Stable --> StablePath["Stable Path"]
   Login --> Availability{"Same-day availability?"}
-  Availability -- Yes --> UrgentConsult(("Urgent Consultation\nSame-day fit-in"))
+  Availability -- Yes --> UrgentConsult(("Urgent Consultation<br/>Same-day fit-in"))
   Availability -- No --> RedFlag{"Critical symptoms present?"}
-  RedFlag -- Yes --> WalkIn(("Walk-in\nImmediate Triage"))
-  RedFlag -- No --> SafetyValve(("Triage Callback\nPartner ER Referral"))
+  RedFlag -- Yes --> WalkIn(("Walk-in<br/>Immediate Triage"))
+  RedFlag -- No --> SafetyValve(("Triage Callback<br/> Partner ER Referral"))
   style UrgentCare fill:#636363,stroke:#484848,color:#f8f8f8
   style FollowUpPath fill:#636363,stroke:#484848,color:#f8f8f8
   style StablePath fill:#636363,stroke:#484848,color:#f8f8f8
