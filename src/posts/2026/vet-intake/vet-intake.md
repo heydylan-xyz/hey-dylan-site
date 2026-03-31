@@ -69,7 +69,7 @@ flowchart TD
   SymptomCheck -- Yes --> SafetyOverride["Clinical Safety Override"]
   SymptomCheck -- No --> Standard["Standard Wellness Path"]
   SafetyOverride --> Login["Login or Create Account"]
-  Login --> Success(("✓ Veterinary Consultation\nBooked with DVM"))
+  Login --> Success(("Veterinary Consultation\nBooked with DVM"))
   style UrgentCare fill:#636363,stroke:#484848,color:#f8f8f8
   style Standard fill:#636363,stroke:#484848,color:#f8f8f8
   linkStyle 3 stroke:#808080,stroke-width:1px,stroke-dasharray:5 5
@@ -101,7 +101,7 @@ flowchart TD
   Category --> ServiceSelect["Select Service: Oncology"]
   ServiceSelect --> Login["Login or Create Account"]
   Login --> ActiveCase{"Active surgical plan or\noncology case on file?"}
-  ActiveCase -- Yes --> Continuity(("✓ Specialized Follow-up\nTreatment or re-check"))
+  ActiveCase -- Yes --> Continuity(("Specialized Follow-up\nTreatment or re-check"))
   ActiveCase -- No --> Establish["Pre-Surgical Consultation Path"]
   style UrgentCare fill:#636363,stroke:#484848,color:#f8f8f8
   style Establish fill:#636363,stroke:#484848,color:#f8f8f8
@@ -140,7 +140,7 @@ flowchart TD
   Availability -- Yes --> UrgentConsult(("Urgent Consultation\nSame-day fit-in"))
   Availability -- No --> RedFlag{"Critical symptoms present?"}
   RedFlag -- Yes --> WalkIn(("Walk-in\nImmediate Triage"))
-  RedFlag -- No --> SafetyValve(("✓ Triage Callback\n+ Partner ER Referral"))
+  RedFlag -- No --> SafetyValve(("Triage Callback\n Partner ER Referral"))
   style UrgentCare fill:#636363,stroke:#484848,color:#f8f8f8
   style FollowUpPath fill:#636363,stroke:#484848,color:#f8f8f8
   style StablePath fill:#636363,stroke:#484848,color:#f8f8f8
