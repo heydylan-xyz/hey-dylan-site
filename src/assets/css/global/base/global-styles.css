@@ -71,8 +71,7 @@ textarea {
 }
 
 
-/* Scope out .mermaid */
-svg:not(.mermaid svg) {
+svg {
   block-size: 0.6lh;
   inline-size: auto;
   flex: none;
@@ -151,9 +150,6 @@ a:not([class]):hover {
     display: none;
   }
 
-  [aria-hidden="true"]:has(.mermaid:not([data-processed])) {
-    display: none;
-  }
 }
 
 /* Dynamic Hex Code - Light About Page */
@@ -197,29 +193,6 @@ a:not([class]):hover {
   align-items: center;
 }
 
-/* Mermaid container */
-.mermaid {
-  background-color: #e4e4e4;
-  border: 1px solid #aeaeae;
-  display: flex;
-  justify-content: center;
-  padding: var(--space-l);
-  margin: var(--space-m-l) 0;
-  border-radius: 8px;
-  overflow-x: auto;
-}
-
-.mermaid svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 500px;
-}
-
-.mermaid .edgeLabel text {
-  fill: #161616;
-}
-
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -228,17 +201,6 @@ a:not([class]):hover {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-}
-
-@media (max-width: 768px) {
-  .flowchart-embed {
-    aspect-ratio: 4 / 5;
-  }
-}
-
-/* Mermaid fallback — visible by default, hidden after Mermaid renders */
-.mermaid-fallback {
-  display: block;
 }
 
 .mermaid[data-processed] ~ .mermaid-fallback,
