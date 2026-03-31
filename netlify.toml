@@ -14,6 +14,10 @@ package = "netlify-plugin-cache"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "autoplay=(), camera=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=()"
 
+[[headers]]
+  for = "/public/city-pet-vet-prototype.html"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
 
 [build]
   command = "npm run build"
