@@ -42,3 +42,18 @@
 .post article :is(h2, h3, h4, h5, h6)[id] {
   scroll-margin-top: var(--space-l, 2rem);
 }
+
+#scroll-progress {
+  --scroll: 0%;
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  height: 5px;
+  z-index: 1000;
+  background: linear-gradient(
+    to right,
+    var(--color-primary) var(--scroll),
+    transparent var(--scroll)
+  );
+  pointer-events: none;
+}
