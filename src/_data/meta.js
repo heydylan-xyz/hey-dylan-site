@@ -91,7 +91,7 @@ export const greenweb = {
 export const tests = {
   pa11y: {
     wait: 2000,
-    customPaths: ['/', '/about/', '/resume/', '/recommendations/', '/projects/', '/projects/duolingo-for-nintendo-switch/', '/projects/veterinary-intake-and-service-architecture/'],
+    customPaths: ['/', '/about/', '/resume/', '/recommendations/', '/projects/', '/projects/duolingo-for-nintendo-switch/', '/projects/veterinary-intake-and-service-architecture/', '/projects/jackery-solar-planner/'],
     globalIgnore: [
       // Mermaid generates duplicate SVG internal IDs across multiple diagrams, not used for accessibility associations
       'WCAG2AA.Principle4.Guideline4_1.4_1_1.F77',

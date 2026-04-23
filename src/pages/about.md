@@ -27,7 +27,7 @@ Dylan is obsessed with the prop user interfaces in movies and TV. He can be foun
 
 ### Music
 
-- Year Zero - Nine Inch Nails
+- Nine Inch Noize - Nine Inch Nails and Boys Noize
 - Mahal - Glass Beams
 - Anttonias - Anttonias
 

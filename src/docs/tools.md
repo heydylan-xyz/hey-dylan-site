@@ -5,7 +5,7 @@ tags: docs
 permalink: false
 ---
 
-- Design & Prototyping: Figma, Adobe XD, Adobe Creative Suite, Framer
+- Design & Prototyping: Figma, Adobe Creative Suite, Framer
 - Planning & Collaboration: FigJam, Miro, Notion, Asana, Monday&#46;com, Airtable
 - CMS: Contentful, Hygraph, WordPress, Umbraco, Drupal, AEM, HubSpot
 - Web Fundamentals: HTML, CSS, Responsive Design Principles
