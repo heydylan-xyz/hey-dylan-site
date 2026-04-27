@@ -5,7 +5,7 @@ tags: docs
 permalink: false
 ---
 
-<strong>Content Designer/UX Designer</strong> | Know Your Pet DNA by Ancestry | *Mar 2025 - Jan 2026*</p>
+<strong>Content Designer / UX Designer</strong> | Know Your Pet DNA by Ancestry | *Mar 2025 - Jan 2026*</p>
 - Shifted to a UX lead capacity as team dynamics changed, designing new roles and permissions functionality, account settings experiences, and shareable graphic features.
 - Addressed impeding design debt and A11Y issues.
 - Realigned brand voice and ethos across CRM and the Know Your Pet DNA site.
