@@ -12,9 +12,9 @@ gallery:
     caption: "Dog"
 ---
 
-Dylan is a product-minded UX designer and content strategist in Seattle. He’s a tinkerer and untangler who has spent 10+ years writing, designing, and building digital experiences at companies like Pinterest and Ancestry.
+Dylan is a product-minded UX designer and content strategist. He’s a builder and optimizer with an integrated skillset focused on writing and designing accessible digital experiences at companies like Pinterest and Ancestry.
 
-He enjoys navigating the evolving space between design and development. Having started out learning HTML from books and building in Dreamweaver, he’s now integrating AI-assisted workflows to quickly move high-fidelity concepts to functional, live prototypes — always keeping accessibility top of mind.
+He enjoys navigating the evolving space between design and development. Having started out learning HTML from books and building in Dreamweaver, he’s now integrating AI-assisted workflows to quickly move high-fidelity concepts to functional, live prototypes.
 
 The green color on this site <span class="hex-light">#729B4D</span> <span class="hex-dark">#5C7A4E</span> is sampled from photos of his many houseplants, and the site itself deploys from an upgraded ThinkPad T480 running Linux Mint. Dylan is learning ASL and Spanish while his Chihuahua communicates using talking buttons. The Chihuahua is also bilingual.
 

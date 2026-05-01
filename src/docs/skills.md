@@ -5,8 +5,22 @@ tags: docs
 permalink: false
 ---
 
-- UX/UI & Responsive Design: Wireframing, high-fidelity prototyping, and designing for complex functionality and user journeys.
-- AI-Assisted Workflows: Leveraging tools like Figma Make, Claude, and OpenCode with well-tuned prompting for rapid iteration of live prototypes that align with tech stacks, facilitating collaboration and developer handoff.
-- Integrated Content Strategy: Site-wide content audits, information architecture, and aligning brand voice across product touchpoints.
-- Systemic Health & Accessibility: Identifying and addressing design debt and accessibility (A11Y) issues within existing products.
-- Cross-Functional Alignment: Coordinating between dev, design, and content teams to modernize site architecture and production workflows.
+Product & UX Design
+- Wireframing, high-fidelity prototyping
+- Interaction modeling, state-aware design
+- User journeys, service flow mapping
+- Context-aware and adaptive interface design
+- Design systems, documentation
+
+Content Design & CXD
+- Information architecture, taxonomy design
+- UX writing, brand voice alignment
+- Decision trees and logic-driven conversation flows
+- AI-assisted workflows and prompt engineering
+- Content audits and governance strategy
+
+Systems & Operations
+- Accessibility (A11Y), systemic health audits
+- Multi-user access and identity modeling
+- System modernization and platform migrations
+- Cross-functional partnership and agile execution
