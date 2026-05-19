@@ -1,7 +1,7 @@
 ---
 title: About
 permalink: /about/index.html
-description: 'Dylan is a product-minded UX designer and content strategist in Seattle.'
+description: 'Dylan is a product-minded content designer, UX designer, and content strategist in Seattle.'
 layout: page
 gallery:
   - image: "/assets/images/about/dylan-headshot.jpg"
@@ -12,7 +12,7 @@ gallery:
     caption: "Dog"
 ---
 
-Dylan is a product-minded UX designer and content strategist. He’s a builder and optimizer with an integrated skillset focused on writing and designing accessible digital experiences at companies like Pinterest and Ancestry.
+Dylan is a product-minded content designer, UX designer, and content strategist. He’s a builder and optimizer with an integrated skillset focused on writing and designing accessible digital experiences at companies like Pinterest and Ancestry.
 
 He enjoys navigating the evolving space between design and development. Having started out learning HTML from books and building in Dreamweaver, he’s now integrating AI-assisted workflows to quickly move high-fidelity concepts to functional, live prototypes.
 

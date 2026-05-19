@@ -1,7 +1,7 @@
 ---
 title: Resume
 permalink: /resume/index.html
-description: 'Dylan is a product-minded UX designer and content strategist in Seattle.'
+description: 'Dylan is a product-minded content designer, UX designer, and content strategist in Seattle.'
 layout: page
 ---
 
