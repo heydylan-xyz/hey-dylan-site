@@ -40,7 +40,7 @@ Dylan is obsessed with the prop UIs in movies and TV. He can be found drinking i
 
 ### Books
 
-- 'Very Good Copy' by Devon Price, PhD
+- 'Very Good Copy' by Eddie Shleyner
 - 'Accessibility for Everyone' by Laura Kalbag
 - 'Ruined by Design' by Mike Monteiro
 
