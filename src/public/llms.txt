@@ -1,0 +1,21 @@
+# Dylan Austin - Senior Content Designer & UX Writer
+
+> Dylan Austin is a Senior Content Designer and UX Writer in Seattle with 10 years of experience specializing in accessible digital experiences, information architecture, and conversation design.
+
+Dylan works at the intersection of UX writing and frontend prototyping, with a background shaping products at Pinterest and Ancestry. He specializes in simplifying high-friction digital spaces—turning dense operational logic, compliance matrices, and multi-user settings into clear, empathetic, and intuitive user experiences.
+
+## Navigation
+
+- [Home](/) - Portfolio overview and featured case studies.
+- [About](/about) - Professional background, design philosophy, skills, and personal interests.
+
+## Featured Projects & Case Studies
+
+- [Roles & Permissions Feature](/projects/roles-and-permissions-feature/): Collaborative role-based access framework for Ancestry's 'Know Your Pet DNA' users.
+- [Veterinary Intake & Service Architecture](/projects/veterinary-intake-and-service-architecture/): Speculative redesign including service architecture, FigJam flowcharts, user flows, and lo-fi conversational prototypes.
+- [Jackery Solar Planner](/projects/jackery-solar-planner/): An interactive solar configuration tool featuring a live energy model and React prototype.
+
+## Technical & Tooling Focus
+- End-to-end design toolkit: Wireframing, high-fidelity prototyping, research synthesis.
+- Systems & Tech: 11ty (Eleventy Excellent), CUBE CSS, JavaScript, WebC, and flat Markdown files. Hosted on Netlify with automated GitHub deployments and pa11y Accessibility Audits.
+- Workflows: Integrates AI-assisted workflows into prototyping loops to stress-test microcopy variations and build functional models.

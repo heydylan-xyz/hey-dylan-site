@@ -5,22 +5,35 @@ tags: docs
 permalink: false
 ---
 
-Product & UX Design
-- Wireframing, high-fidelity prototyping
-- Interaction modeling, state-aware design
-- User journeys, service flow mapping
-- Context-aware and adaptive interface design
-- Design systems, documentation
+Core Expertise
+- UX Writing
+- Content Strategy
+- Information Architecture
+- Content Audits
+- Journey Mapping
+- Prototyping
+- Accessibility Standards
+- Figma
+- CMS Platforms
 
-Content Design & CXD
-- Information architecture, taxonomy design
-- UX writing, brand voice alignment
-- Decision trees and logic-driven conversation flows
-- AI-assisted workflows and prompt engineering
-- Content audits and governance strategy
+Content Strategy & UX Writing
+- UX Writing
+- Information Architecture
+- Conversation Design
+- Product Taxonomy
+- Content Auditing
+- Content Governance
+- Content Lifecycle Management
+- Interface Microcopy
+- Brand Voice Alignment
 
-Systems & Operations
-- Accessibility (A11Y), systemic health audits
-- Multi-user access and identity modeling
-- System modernization and platform migrations
-- Cross-functional partnership and agile execution
+UX Design & Systems
+- User Journey Mapping
+- Design Systems
+- Prototyping
+- Wireframing
+- User Research Synthesis
+- Decision Trees
+- State-Aware Design
+- Accessibility Standards (A11Y)
+- Error State Design

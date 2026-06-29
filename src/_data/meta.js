@@ -2,7 +2,7 @@ export const url = process.env.URL || 'http://localhost:8080';
 // Extract domain from `url`
 export const domain = new URL(url).hostname;
 export const siteName = 'Dylan Austin';
-export const siteDescription = 'Portfolio for Dylan Austin, UX designer and content strategist.';
+export const siteDescription = 'Portfolio for Dylan Austin, Senior Content Designer and UX Writer.';
 export const siteType = 'Person'; // schema
 export const locale = 'en_EN';
 export const lang = 'en';
@@ -25,7 +25,7 @@ export const themeLight = '#f8f8f8'; // used for meta tag theme-color, if light 
 export const themeDark = '#2e2e2e'; // used for meta tag theme-color, if dark colors are prefered. best use value set for dark bg
 export const opengraph_default = '/assets/images/template/opengraph-default.jpg'; // fallback/default meta image
 export const opengraph_default_alt =
-  "Dylan Austin - UX Designer and Content Strategist Portfolio"; // alt text for default meta image
+  "Dylan Austin - Senior Content Designer and UX Writer Portfolio"; // alt text for default meta image
 export const projects = {
   // RSS feed
   name: 'Dylan Austin Portfolio',

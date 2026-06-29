@@ -6,28 +6,26 @@ permalink: false
 ---
 
 <strong>Content Designer / UX Designer</strong> | Know Your Pet DNA by Ancestry | *Mar 2025 - Jan 2026*</p>
-- Designed scalable roles and permissions frameworks and unified account settings to resolve fragmented user experiences
-- Addressed impeding design debt and A11Y issues
-- Realigned brand voice and ethos across CRM and the Know Your Pet DNA site
-- Leveraged member services insights to address user experience gaps within the product
-- Comprehensive site content audit and cleanup to streamline information architecture
-- Partnered with the dev team and product stakeholders to facilitate a product migration to a new parent company, including transition of content ecosystem in Hygraph and the user experience for customer data migration
+- Simplified a fragmented multi-user experience by redesigning account settings and a role-based permissions model.
+- Reduced content complexity through a system-wide audit, taxonomy redesign, and information architecture overhaul across account settings, DNA traits results pages.
+- Improved accessibility and interaction consistency across core consumer interfaces by removing design and content friction, resulting in a more usable account and dashboard experience.
+- Supported a cross-enterprise migration to Hygraph, preserving content continuity and data integrity during the platform transition for product and editorial content.
+- Standardized brand voice and microcopy, creating a more consistent product narrative and reducing inconsistency across user-facing surfaces.
 
 <strong>Content Strategy Manager</strong> | Independence Pet Group | *Jun 2023 - Apr 2025*
-- Led a content strategy transformation that aligned dev, design, and content teams to modernize site architecture and production workflows
-- Spearheaded a comprehensive SEO content strategy overhaul for ASPCA Pet Health Insurance, achieving #1 and #2 rankings for competitive, high-intent keywords
-- Collaborated on UX/UI site optimizations that converted organic traffic into revenue, resulting in a 4x growth in organic sales within 6 months
-- Managed optimized blog content driving 80% of total organic traffic and a 92% YoY improvement in conversion rates
+- Captured 80% of total organic traffic and improved conversion rates by 92% YoY by managing a scaled end-to-end product content ecosystem.
+- Drove 4x growth in organic sales within 6 months by partnering on UX/UI optimizations that converted high-intent traffic into revenue.
+- Earned #1 and #2 rankings for competitive high-intent keywords for ASPCA Pet Health Insurance.
+- Increased conversational search visibility by optimizing information architecture and content strategy for AI overviews across multiple pet insurance brands.
+- Modernized site architecture and delivery workflows by aligning design, development, and product content teams in a shared services model, improving quote conversions.
 
 <strong>Digital Copywriter</strong> | Ollie | *Feb 2023 - Jun 2023*
-- Email marketing campaigns, paid media (paid social, affiliate marketing, search), and other creative copy
-- SEO-optimized landing pages, homepage A/B testing for conversion optimization
+- Improved landing page and homepage performance by supporting A/B testing and conversion-focused copy iterations.
+- Wrote interface copy, lifecycle email content, and paid search creatives to support acquisition and engagement goals across product and marketing channels.
 
 <strong>Editorial Content Writer</strong> | Pinterest | *Jun 2022 - Feb 2023*
-- Managed daily content for Today's Inspiration and Shopping Spotlight surfaces across a wide range of verticals—approximately 1,500 pieces of content
-- Handled content management, curation, scheduling, and trend identification on and off-platform
-- Drafted engaging copy for email marketing, landing pages, and paid media including social, affiliate, and search
-- Assisted on cross-functional projects for paid social campaigns and creator teams, including music curation and features for Vogue and Allure
+- Managed content strategy, curation scheduling, and interface copy for Today’s Inspiration and Shopping Spotlight surfaces, delivering approximately 1,500 editorial assets across discovery experiences.
+- Drafted microcopy for product discovery pages, retention emails, and partner feature surfaces to improve clarity across the experience.
 
 
 

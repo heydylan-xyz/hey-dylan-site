@@ -6,6 +6,6 @@ permalink: false
 ---
 
 - Design & Prototyping: Figma, Adobe Creative Suite, Framer
-- AI & Development: Claude, OpenCode, HTML5, CSS, basic JavaScript
+- AI Workflows & Development: Claude Code, Figma Make, HTML5, CSS, basic JavaScript
 - Planning & Collaboration: FigJam, Miro, Notion, Asana, Monday&#46;com, Airtable
-- CMS: Contentful, Hygraph, WordPress, Umbraco, Drupal, AEM, HubSpot
+- CMS Ecosystems: Contentful, Hygraph, WordPress, Umbraco, Drupal, AEM, HubSpot
