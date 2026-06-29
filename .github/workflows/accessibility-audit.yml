@@ -16,6 +16,8 @@ jobs:
         run: npm install
       - name: Build Site
         run: npm run pa11y:build
+      - name: Install Chrome for Puppeteer
+        run: npx puppeteer browsers install chrome
       - name: Run Accessibility Audit
         run: |
           npx serve dist -l 8080 & 
