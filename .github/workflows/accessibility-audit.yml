@@ -1,5 +1,7 @@
 name: Accessibility Audit
-on: [push]
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   pa11y-check:
@@ -16,12 +18,8 @@ jobs:
         run: npm install
       - name: Build Site
         run: npm run pa11y:build
-      - name: Install Chrome for Puppeteer
-        run: |
-          rm -rf /home/runner/.cache/puppeteer
-          npx puppeteer browsers install chrome
       - name: Run Accessibility Audit
         run: |
-          npx serve dist -l 8080 & 
+          npm run pa11y:serve &
           sleep 5
           npx pa11y-ci --config dist/pa11y.json --threshold 0
