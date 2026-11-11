@@ -1,7 +1,7 @@
 ---
 title: Resume
 permalink: /resume/index.html
-description: 'Dylan is a Senior Content Designer and UX Writer in Seattle.'
+description: 'Senior Content Designer & Content Strategist | Information Architecture, UX Writing & Cognitive Accessibility.'
 layout: page
 ---
 

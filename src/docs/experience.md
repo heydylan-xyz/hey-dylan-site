@@ -5,30 +5,33 @@ tags: docs
 permalink: false
 ---
 
-<strong>Content Designer / UX Designer</strong> | Know Your Pet DNA by Ancestry | *Mar 2025 - Jan 2026*</p>
-- Simplified a fragmented multi-user experience by redesigning account settings and a role-based permissions model.
-- Reduced content complexity through a system-wide audit, taxonomy redesign, and information architecture overhaul across account settings, DNA traits results pages.
-- Improved accessibility and interaction consistency across core consumer interfaces by removing design and content friction, resulting in a more usable account and dashboard experience.
-- Supported a cross-enterprise migration to Hygraph, preserving content continuity and data integrity during the platform transition for product and editorial content.
-- Standardized brand voice and microcopy, creating a more consistent product narrative and reducing inconsistency across user-facing surfaces.
+<strong>Content Designer</strong> | Know Your Pet DNA by Ancestry | *Mar 2025 - Jan 2026*</p>
+- Designed a near-ship role-based access framework for sharing pet DNA results, organizing collaborators by pet and defining invitation, pending, accepted, role-change, and revocation states.
+- Led an account-settings redesign using competitive research and recurring Member Services support triggers to reorganize pet management, clarify inherited Ancestry account fields, and add intentional friction around deletion.
+- Unified the distinct Know Your Pet DNA brand voice across product surfaces, managing legal and compliance reviews for sensitive health data and international sales copy across the US, the UK, Ireland, Australia, and New Zealand.
+- Replaced ambiguous controls with descriptive labels and inline help, running continuous usability and accessibility testing for color contrast, tooltips, and screen-reader compatibility.
+- Partnered with product and engineering on a Hygraph CMS migration and taxonomy cleanup, utilizing scalable content modeling to protect product and editorial content continuity after the product's success led to its acquisition by a new parent company.
 
 <strong>Content Strategy Manager</strong> | Independence Pet Group | *Jun 2023 - Apr 2025*
-- Captured 80% of total organic traffic and improved conversion rates by 92% YoY by managing a scaled end-to-end product content ecosystem.
-- Drove 4x growth in organic sales within 6 months by partnering on UX/UI optimizations that converted high-intent traffic into revenue.
-- Earned #1 and #2 rankings for competitive high-intent keywords for ASPCA Pet Health Insurance.
-- Increased conversational search visibility by optimizing information architecture and content strategy for AI overviews across multiple pet insurance brands.
-- Modernized site architecture and delivery workflows by aligning design, development, and product content teams in a shared services model, improving quote conversions.
+- Managed content strategy within a multi-brand pet insurance ecosystem, tailoring distinct brand voices and embedding accessible content standards into high-intent discovery and conversion work.
+- Partnered with cross-functional design, development, and legal teams to execute UX/UI improvements and navigate strict compliance reviews for highly regulated insurance policies in an Agile shared-services model.
+- Captured 80% of total organic traffic and secured a 92% YoY improvement in conversion rates for ASPCA Pet Health Insurance (APHI) by managing an optimized, structured content ecosystem.
+- Drove a 4x growth in organic sales for APHI within 6 months by collaborating on UX/UI site optimizations that converted high-intent traffic into platform revenue.
+
+<strong>Content Strategy, Writing & Web Projects</strong> | Freelance | *Jan 2016 - Jan 2025*
+*Selected engagements; intermittent alongside employed roles.*
+- Wrote articles, interface copy, and search-focused content centering neurodiversity and LGBTQ+ communities, published by Apartment Therapy, Inflow, Figo Pet Insurance, UX Collective, and others.
+- Advised a healthcare client on B2B compliance communications, providing structured feedback, core messaging frameworks, and comprehensive strategy documents.
+- Managed e-commerce and operations strategy for a DTC brand, shaping its Shopify web presence, Klaviyo email flows for orders, subscriptions, and marketing, product description pages, and order fulfillment workflows.
 
 <strong>Digital Copywriter</strong> | Ollie | *Feb 2023 - Jun 2023*
-- Improved landing page and homepage performance by supporting A/B testing and conversion-focused copy iterations.
-- Wrote interface copy, lifecycle email content, and paid search creatives to support acquisition and engagement goals across product and marketing channels.
+- Wrote interface copy, lifecycle email, paid-search creative, and homepage and landing-page content across product and acquisition surfaces, ensuring strict adherence to compliance guidelines for nutritional claims.
+- Supported conversion-focused copy iterations and A/B testing.
 
 <strong>Editorial Content Writer</strong> | Pinterest | *Jun 2022 - Feb 2023*
-- Managed content strategy, curation scheduling, and interface copy for Today’s Inspiration and Shopping Spotlight surfaces, delivering approximately 1,500 editorial assets across discovery experiences.
-- Drafted microcopy for product discovery pages, retention emails, and partner feature surfaces to improve clarity across the experience.
+- Wrote approximately 1,500 pieces for Today's Inspiration and Shopping Spotlight across in-app and web discovery, championing campaigns focused on racial equity, disability, neurodiversity, and inclusivity.
+- Wrote retention ads that ran across Meta platforms and trend-deck copy for Pinterest's U.S. Creator Management team, anchoring the brand voice in curiosity, creativity, and learning.
 
-
-
-
-
-
+<strong>Communications Strategist</strong> | Drag Out The Vote | *Mar 2020 - Dec 2020*
+- Worked alongside the founder and a small team to scale an in-person voter-registration initiative into a national digital campaign, coordinating communications that supported 303 Drag Ambassadors across 44 states.
+- Delivered accessible digital outreach (incorporating alt-text, video captions, and transcripts), virtual programming, and partner communications for a campaign that reported 500,000+ direct voter contacts and 1.25B+ media impressions.

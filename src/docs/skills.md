@@ -1,39 +1,36 @@
 ---
 title: "Skills"
-order: 3
+order: 4
 tags: docs
 permalink: false
 ---
 
-Core Expertise
-- UX Writing
-- Content Strategy
-- Information Architecture
-- Content Audits
-- Journey Mapping
-- Prototyping
-- Accessibility Standards
-- Figma
-- CMS Platforms
-
 Content Strategy & UX Writing
-- UX Writing
-- Information Architecture
-- Conversation Design
-- Product Taxonomy
-- Content Auditing
-- Content Governance
-- Content Lifecycle Management
-- Interface Microcopy
-- Brand Voice Alignment
+- Content design
+- UX writing
+- Content strategy
+- Content audits
+- Brand voice
 
 UX Design & Systems
-- User Journey Mapping
-- Design Systems
-- Prototyping
-- Wireframing
-- User Research Synthesis
-- Decision Trees
-- State-Aware Design
-- Accessibility Standards (A11Y)
-- Error State Design
+- Information architecture
+- Content modeling & taxonomy
+- Wireframing and prototyping
+- Error-state design
+- Edge-case modeling
+- Support-informed design
+- Service design
+
+Accessibility & Universal Design
+- Accessibility testing
+- Inclusive design
+- Neuro-inclusive design
+- Usability testing
+
+Operations, Governance & Collaboration
+- Agile methodology
+- Cross-functional collaboration
+- Content governance
+- Stakeholder management
+- Legal and compliance reviews
+- Role-based permissions

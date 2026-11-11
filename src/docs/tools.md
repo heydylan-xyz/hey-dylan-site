@@ -1,11 +1,13 @@
 ---
-title: "Tools"
-order: 4
+title: "Tools & Languages"
+order: 5
 tags: docs
 permalink: false
 ---
 
-- Design & Prototyping: Figma, Adobe Creative Suite, Framer
-- AI Workflows & Development: Claude Code, Figma Make, HTML5, CSS, basic JavaScript
-- Planning & Collaboration: FigJam, Miro, Notion, Asana, Monday&#46;com, Airtable
-- CMS Ecosystems: Contentful, Hygraph, WordPress, Umbraco, Drupal, AEM, HubSpot
+- Design & Prototyping: Figma, FigJam
+- Accessibility: Apple VoiceOver, NVDA, WAVE, Lighthouse, WCAG contrast tools, accessibility linters, vision simulators, readability & plain language auditing
+- Web & Content Systems: Headless & Enterprise CMS (Hygraph, Contentful, AEM, Drupal, Umbraco), WordPress, HTML/CSS
+- Agile & Collaboration: Miro, Airtable, Notion, Jira
+- Logic & Workflows: Conversational design mapping, context engineering, LLM workflow integration, AI-assisted wireframing & prototyping, edge-case validation
+- Languages (actively learning): Spanish, American Sign Language

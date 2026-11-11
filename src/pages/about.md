@@ -12,46 +12,33 @@ gallery:
     caption: "Dog"
 ---
 
-Dylan is a Senior Content Designer and UX Writer with 10 years of experience shaping intuitive digital products across web, mobile, and conversational interfaces at companies like Pinterest and Ancestry. Rather than treating copy as an afterthought, he uses an end-to-end toolkit of wireframing, high-fidelity prototyping, and research synthesis to build clear, empathetic user experiences.
+Over the past decade, Dylan has worked as a UX writer, content designer, and strategist across consumer products, regulated health and insurance, and nonprofit advocacy. He does his best work untangling dense policy, messy site architecture, and confusing workflows.
 
-He specializes in simplifying high-friction digital spaces, turning dense operational logic, multi-user settings, or confusing compliance matrices into straightforward, logical layouts.
+Late-in-life diagnoses of autism and ADHD connected dots in both his life and career, clarifying how rigid systems and sensory overload create everyday barriers. To build on that lived experience, Dylan is completing a degree in Psychology with a minor in Accessibility & Disability Studies, looking beyond basic compliance toward universal design and disability justice.
 
-Since learning HTML from books and building layouts in Dreamweaver years ago, he still loves navigating the space between product strategy and frontend code. Today, he integrates AI-assisted workflows directly into his prototyping loops to stress-test microcopy variations and move quickly from low-fidelity content blueprints to functional, high-fidelity interactive models.
+Outside of work and study, Dylan is learning American Sign Language and Spanish while his Chihuahua communicates using talking buttons. When he's not at the bottom of obscure Wikipedia rabbit holes, he can be found tending to a concerning number of houseplants, tinkering with Linux on an old ThinkPad, and playing RollerCoaster Tycoon for the zillionth time.
 
 {% include "partials/gallery.njk" %}
 
-The green color on this site <span class="hex-light">#729B4D</span> <span class="hex-dark">#5C7A4E</span> is sampled from photos of his many houseplants, and the site itself deploys from an upgraded ThinkPad T480 running Linux Mint. Dylan is learning ASL and Spanish while his Chihuahua communicates using talking buttons. The Chihuahua is also bilingual.
-
-Dylan is obsessed with the prop UIs in movies and TV. He can be found drinking iced coffee in the rain. He's the kid who never stopped asking all the adults "why?" but now he has Wikipedia. One time Ted Allen said to him, "Dylan, you complete me." Dylan would not lie to you about the guy from Queer Eye and Chopped Junior.
-
 ## Some things Dylan likes
+
+### Books
+
+- 'The Anti-Ableist Manifesto' by Tiffany A. Yu
+- 'Very Good Copy' by Eddie Shleyner
+- 'Accessibility for Everyone' by Laura Kalbag
+- 'Ruined by Design' by Mike Monteiro
 
 ### Music
 
 - Nine Inch Noize - Nine Inch Nails and Boys Noize
 - Mahal - Glass Beams
 - Anttonias - Anttonias
+- 13 Songs - Fugazi
 
 ### Games
 
 - Clair Obscur: Expedition 33 - Sandfall Interactive
+- The Legend of Zelda: Ocarina of Time - Nintendo
 - Baldur's Gate 3 - Larian Studios
 - Rollercoaster Tycoon 2 - Infogrames Interactive
-
-### Books
-
-- 'Very Good Copy' by Eddie Shleyner
-- 'Accessibility for Everyone' by Laura Kalbag
-- 'Ruined by Design' by Mike Monteiro
-
-### Apps
-
-- Lingvano
-- NASA
-- Obsidian
-
-### YouTube
-
-- Corridor Crew
-- Technology Connections
-- Climate Town
