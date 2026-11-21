@@ -11,7 +11,9 @@
 
     <!-- 2 title -->
     <title>
-      {%- if title and title != meta.siteName -%}
+      {%- if page.url == "/" -%}
+        {{- title or meta.siteName -}}
+      {%- elseif title and title != meta.siteName -%}
         {{- title }} | {{ meta.siteName -}}
       {%- else -%}
         {{- meta.siteName -}}
